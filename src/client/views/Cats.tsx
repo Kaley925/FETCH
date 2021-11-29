@@ -1,7 +1,11 @@
-import React from "react";
+import * as React from 'react';
 
 const Cats = () => {
-  return <div></div>;
-};
+    return(
+        <>
+        <h1 className="justify-content-center mt-5 row">Hello from the Cats page</h1>
+        </>
+    )
+}
+export default Cats ;
 
-export default Cats;
