@@ -1,1 +1,14 @@
 :)
+
+Colors:
+
+#FEAD12
+#FBF4EA
+#FBD89A
+#F9ECDC
+#FFE7B9
+#FFFFFF
+#000000
+
+Font:
+Poppins
