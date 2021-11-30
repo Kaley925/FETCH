@@ -9,6 +9,7 @@ import { BsArrowLeft } from "react-icons/bs";
 import SlideCard from "../components/SlideCard";
 import Footer from "../components/Footer";
 import Slider from "react-slick";
+import Signup from "../components/Signup";
 import "slick-carousel/slick/slick.scss";
 import "slick-carousel/slick/slick-theme.scss";
 import { gsap } from "gsap";
@@ -97,9 +98,32 @@ const Home = () => {
     sliderRef.current.slickPrev();
   };
 
+  // Animal search
+  const animals = ["cats", "dogs", "rabbits", "hamsters"];
+  const animals2 = ["cat", "dog", "rabbit", "hamster"];
+  const [search, setSearch] = useState("");
+  const handleAnimalSearch = (e: any) => {
+    setSearch(e.target.value);
+  };
+
+  // Modal login
+  const [showLogin, setShowLogin] = useState(false);
+  const handleLoginClose = () => setShowLogin(false);
+  const handleLoginShow = () => setShowLogin(true);
+
+  // Modal signup
+  const [showSignup, setShowSignup] = useState(false);
+  const handleSignupClose = () => setShowSignup(false);
+  const handleSignupShow = () => setShowSignup(true);
+
   return (
     <>
-      <Nav bgView="#FBF4EA" />
+      <Signup modalView={showSignup} handleSignupClose={handleSignupClose} />
+      <Nav
+        handleLogin={handleLoginShow}
+        handleSignup={handleSignupShow}
+        bgView="#FBF4EA"
+      />
       <main ref={headerRef} id="main">
         <div className="container main-container d-flex justify-content-between align-items-center">
           <div className="main-left">
@@ -110,13 +134,35 @@ const Home = () => {
               from over 6,000 animals in our system and find the perfect pet for
               you. Adoption is only a click away with Fetch!
             </p>
-            <div className="main-btn-area d-flex flex-column mb-5">
-              <button className="btn btn-dog-directory w-50 mb-3 p-2">
-                Find Dogs <BsFillArrowRightCircleFill className="btn-arrow" />
-              </button>
-              <button className="btn btn-cat-directory  w-50 p-2">
-                Find Cats <BsFillArrowRightCircleFill className="btn-arrow" />
-              </button>
+            <div className="main-form-area d-flex flex-column mb-5">
+              <label htmlFor="animal-search"></label>
+              <div className="d-flex input-group mb-3 w-75 search-area">
+                <input
+                  type="text"
+                  className="form-control animal-search p-3"
+                  placeholder="Search animal by species..."
+                  aria-label="Search animal by species..."
+                  aria-describedby="basic-addon2"
+                  onChange={handleAnimalSearch}
+                />
+                <button className="input-group-text" id="basic-addon2">
+                  <Link
+                    className="animal-search-link"
+                    to={
+                      search.charAt(search.length - 1) === "s" &&
+                      animals.some((animal) => search.includes(animal))
+                        ? `/${search}`
+                        : search.charAt(search.length - 1) !== "s" &&
+                          animals2.some((animal) => search.includes(animal))
+                        ? `/${search}s`
+                        : `/`
+                    }
+                  >
+                    Find Animals
+                    <BsFillArrowRightCircleFill className="btn-arrow" />
+                  </Link>
+                </button>
+              </div>
             </div>
           </div>
           <div className="main-right">
@@ -267,4 +313,3 @@ const Home = () => {
 };
 
 export default Home;
-
