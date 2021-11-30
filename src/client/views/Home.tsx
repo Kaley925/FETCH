@@ -10,9 +10,11 @@ import SlideCard from "../components/SlideCard";
 import Footer from "../components/Footer";
 import Slider from "react-slick";
 import Signup from "../components/Signup";
+import Login from "../components/Login";
 import "slick-carousel/slick/slick.scss";
 import "slick-carousel/slick/slick-theme.scss";
 import { gsap } from "gsap";
+import ScrollReveal from "../components/ScrollReveal";
 
 const Home = () => {
   //   Imgs arr / slide data
@@ -119,6 +121,7 @@ const Home = () => {
   return (
     <>
       <Signup modalView={showSignup} handleSignupClose={handleSignupClose} />
+      <Login modalView={showLogin} handleLoginClose={handleLoginClose} />
       <Nav
         handleLogin={handleLoginShow}
         handleSignup={handleSignupShow}
@@ -135,32 +138,12 @@ const Home = () => {
               you. Adoption is only a click away with Fetch!
             </p>
             <div className="main-form-area d-flex flex-column mb-5">
-              <label htmlFor="animal-search"></label>
-              <div className="d-flex input-group mb-3 w-75 search-area">
-                <input
-                  type="text"
-                  className="form-control animal-search p-3"
-                  placeholder="Search animal by species..."
-                  aria-label="Search animal by species..."
-                  aria-describedby="basic-addon2"
-                  onChange={handleAnimalSearch}
-                />
-                <button className="input-group-text" id="basic-addon2">
-                  <Link
-                    className="animal-search-link"
-                    to={
-                      search.charAt(search.length - 1) === "s" &&
-                      animals.some((animal) => search.includes(animal))
-                        ? `/${search}`
-                        : search.charAt(search.length - 1) !== "s" &&
-                          animals2.some((animal) => search.includes(animal))
-                        ? `/${search}s`
-                        : `/`
-                    }
-                  >
-                    Find Animals
-                    <BsFillArrowRightCircleFill className="btn-arrow" />
-                  </Link>
+              <div className="main-btn-area d-flex flex-column mb-5">
+                <button className="btn btn-dog-directory w-50 mb-3 p-2">
+                  Find Dogs <BsFillArrowRightCircleFill className="btn-arrow" />
+                </button>
+                <button className="btn btn-cat-directory  w-50 p-2">
+                  Find Cats <BsFillArrowRightCircleFill className="btn-arrow" />
                 </button>
               </div>
             </div>
@@ -176,138 +159,146 @@ const Home = () => {
         </div>
       </main>
 
-      <section id="success" className="success-stories">
-        <div className="container success-stories-container">
-          <h2 className="success-title">Success Stories</h2>
-          <p className="success-description text-muted mt-3">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum
-            quasi at vitae eveniet, ipsa nostrum, possimus laborum maiores quia
-            cum recusandae consequuntur repudiandae ea magni nisi sapiente,
-            numquam fugiat ex.
-          </p>
+      <ScrollReveal style={{}}>
+        <section id="success" className="success-stories">
+          <div className="container success-stories-container">
+            <h2 className="success-title">Success Stories</h2>
+            <p className="success-description text-muted mt-3">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum
+              quasi at vitae eveniet, ipsa nostrum, possimus laborum maiores
+              quia cum recusandae consequuntur repudiandae ea magni nisi
+              sapiente, numquam fugiat ex.
+            </p>
 
-          <div className="arrows d-flex justify-content-end mt-4 mb-4">
-            <BsArrowLeft
-              onClick={slideLeft}
-              className={`slider-left mx-2 ${
-                currentArrow === "left" ? "active-arrow" : ""
-              }`}
-            />
-            <BsArrowRight
-              onClick={slideRight}
-              className={`slider-right ${
-                currentArrow === "right" ? "active-arrow" : ""
-              }`}
-            />
+            <div className="arrows d-flex justify-content-end mt-4 mb-4">
+              <BsArrowLeft
+                onClick={slideLeft}
+                className={`slider-left mx-2 ${
+                  currentArrow === "left" ? "active-arrow" : ""
+                }`}
+              />
+              <BsArrowRight
+                onClick={slideRight}
+                className={`slider-right ${
+                  currentArrow === "right" ? "active-arrow" : ""
+                }`}
+              />
+            </div>
+
+            <Slider
+              ref={sliderRef}
+              slidesToShow={3}
+              dots={false}
+              responsive={[
+                {
+                  breakpoint: 750,
+                  settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                  },
+                },
+
+                {
+                  breakpoint: 577,
+                  settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                  },
+                },
+              ]}
+            >
+              {slideData.map((slide, index) => {
+                return (
+                  <SlideCard
+                    key={`slider-card-${index}`}
+                    slideImg={slide.picture}
+                    slideTitle={slide.title}
+                    slideDescription={slide.description}
+                    slideYears={slide.years}
+                  />
+                );
+              })}
+            </Slider>
           </div>
+        </section>
+      </ScrollReveal>
 
-          <Slider
-            ref={sliderRef}
-            slidesToShow={3}
-            dots={false}
-            responsive={[
-              {
-                breakpoint: 750,
-                settings: {
-                  slidesToShow: 2,
-                  slidesToScroll: 2,
-                },
-              },
+      <ScrollReveal style={{}}>
+        <section id="adopt" className="why-adopt p-3">
+          <div className="container why-adopt-container d-flex justify-content-between align-items-center">
+            <div className="why-adopt-left">
+              <h2 className="why-adopt-title">Why Adopt?</h2>
+              <p className="why-adopt-description">
+                The number of euthanized animals could be reduced dramatically
+                if more people adopted pets instead of buying them. When you
+                adopt, you save a loving animal by making them part of your
+                family and open up shelter space for another animal who might
+                desperately need it.
+              </p>
+            </div>
 
-              {
-                breakpoint: 577,
-                settings: {
-                  slidesToShow: 1,
-                  slidesToScroll: 1,
-                },
-              },
-            ]}
-          >
-            {slideData.map((slide, index) => {
-              return (
-                <SlideCard
-                  key={`slider-card-${index}`}
-                  slideImg={slide.picture}
-                  slideTitle={slide.title}
-                  slideDescription={slide.description}
-                  slideYears={slide.years}
+            <div className="why-adopt-right">
+              <img
+                src="https://i.imgur.com/uMeQb7l.png"
+                alt=""
+                className="why-adopt-img img-fluid"
+              />
+            </div>
+          </div>
+        </section>
+      </ScrollReveal>
+
+      <ScrollReveal style={{}}>
+        <section id="sponsors" className="our-sponsors">
+          <div className="container our-sponsors-container">
+            <div className="our-sponsors-top">
+              <h2 className="our-sponsors-title">Our Sponsors</h2>
+              <p className="our-sponsors-description text-muted">
+                Without our incredible sponsors, Fetch would not be possible. We
+                would like to thank every company and organization who has
+                contributed to our app. Thank you for making this app a reality!
+              </p>
+            </div>
+            <div className="our-sponsors-bottom mt-4 gx-5 gy-5 row">
+              <div className="col-lg-3 col-6">
+                <img
+                  src="https://harnessgiving.com/assets/img/harness-clients/gbhs-wide.png"
+                  alt=""
+                  className="sponsor img-fluid"
                 />
-              );
-            })}
-          </Slider>
-        </div>
-      </section>
+              </div>
 
-      <section id="adopt" className="why-adopt p-3">
-        <div className="container why-adopt-container d-flex justify-content-between align-items-center">
-          <div className="why-adopt-left">
-            <h2 className="why-adopt-title">Why Adopt?</h2>
-            <p className="why-adopt-description">
-              The number of euthanized animals could be reduced dramatically if
-              more people adopted pets instead of buying them. When you adopt,
-              you save a loving animal by making them part of your family and
-              open up shelter space for another animal who might desperately
-              need it.
-            </p>
-          </div>
+              <div className="col-lg-3 col-6">
+                <img
+                  src="https://i.imgur.com/jAGRP8t.png"
+                  alt=""
+                  className="sponsor img-fluid"
+                />
+              </div>
 
-          <div className="why-adopt-right">
-            <img
-              src="https://i.imgur.com/uMeQb7l.png"
-              alt=""
-              className="why-adopt-img img-fluid"
-            />
-          </div>
-        </div>
-      </section>
+              <div className="col-lg-3 col-6">
+                <img
+                  src="https://images.squarespace-cdn.com/content/v1/59233110197aea9830d1d4e2/1634244336706-KUD7S3C1AKEJGU3SLP0B/4c_Horizontal.png?format=750w"
+                  alt=""
+                  className="sponsor img-fluid"
+                />
+              </div>
 
-      <section id="sponsors" className="our-sponsors">
-        <div className="container our-sponsors-container">
-          <div className="our-sponsors-top">
-            <h2 className="our-sponsors-title">Our Sponsors</h2>
-            <p className="our-sponsors-description text-muted">
-              Without our incredible sponsors, Fetch would not be possible. We
-              would like to thank every company and organization who has
-              contributed to our app. Thank you for making this app a reality!
-            </p>
-          </div>
-          <div className="our-sponsors-bottom mt-4 gx-5 gy-5 row">
-            <div className="col-lg-3 col-6">
-              <img
-                src="https://harnessgiving.com/assets/img/harness-clients/gbhs-wide.png"
-                alt=""
-                className="sponsor img-fluid"
-              />
-            </div>
-
-            <div className="col-lg-3 col-6">
-              <img
-                src="https://i.imgur.com/jAGRP8t.png"
-                alt=""
-                className="sponsor img-fluid"
-              />
-            </div>
-
-            <div className="col-lg-3 col-6">
-              <img
-                src="https://images.squarespace-cdn.com/content/v1/59233110197aea9830d1d4e2/1634244336706-KUD7S3C1AKEJGU3SLP0B/4c_Horizontal.png?format=750w"
-                alt=""
-                className="sponsor img-fluid"
-              />
-            </div>
-
-            <div className="col-lg-3 col-6">
-              <img
-                src="https://i.imgur.com/1ViJ7ET.png"
-                alt=""
-                className="sponsor img-fluid"
-              />
+              <div className="col-lg-3 col-6">
+                <img
+                  src="https://i.imgur.com/1ViJ7ET.png"
+                  alt=""
+                  className="sponsor img-fluid"
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollReveal>
 
-      <Footer footerView="#F9ECDC" />
+      <ScrollReveal style={{}}>
+        <Footer footerView="#F9ECDC" />
+      </ScrollReveal>
     </>
   );
 };

@@ -26,11 +26,11 @@ const Navigation: React.FC<NavigationProps> = ({
       ref={navRef}
       collapseOnSelect
       expand="lg"
-      className="fetch-navbar pt-5"
+      className="fetch-navbar pt-5 pb-2 sticky-top"
       style={{ backgroundColor: bgView }}
     >
       <Container>
-        <Navbar.Brand href="#home" className="d-flex align-items-center">
+        <Navbar.Brand href="#main" className="d-flex align-items-center">
           <img
             src="https://i.imgur.com/iXM4PWE.png"
             alt=""
@@ -45,12 +45,12 @@ const Navigation: React.FC<NavigationProps> = ({
               {" "}
               <Badge
                 className="favorite-tracker"
-                badgeContent={"new"}
+                badgeContent={0}
                 color="error"
               >
                 <FavoriteIcon color="action" />
               </Badge>{" "}
-              <span className="favorite-pets mx-3">All Pets</span>
+              <span className="favorite-pets mx-2">Favorite Pets</span>
             </Nav.Link>
           </Nav>
           <Nav className="nav-btns">
