@@ -90,6 +90,7 @@
   background-color: black !important;
   color: white !important;
   font-weight: 600 !important;
+  border: none !important;
 }
 
 .btn-arrow {
@@ -110,6 +111,22 @@
 
 .css-to4x1n-MuiBadge-badge {
   background-color: #fead12 !important;
+}
+
+.animal-search {
+  border: none !important;
+}
+
+.animal-search-btn {
+  border: none !important;
+  z-index: 2;
+  background: #fead12 !important;
+}
+
+.animal-search-link {
+  text-decoration: none !important;
+  color: white;
+  font-weight: 700;
 }
 
 // Slider
@@ -287,6 +304,12 @@
 
   .success-stories {
     margin-top: 1rem;
+  }
+
+  .main-form-area {
+    margin: auto !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
 }
 
