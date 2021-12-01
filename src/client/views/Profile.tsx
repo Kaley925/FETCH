@@ -6,84 +6,61 @@ import { NavLink } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Badge from "@mui/material/Badge";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import Navigation from "../components/Navigation";
+import Sidebar from "../components/Sidebar";
+import "../scss/profile";
 
-const Navigation: React.FC<NavigationProps> = ({ bgView }) => {
+
+const Profile = () => {
   return (
     <>
-      <img
-        src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fthumbs.dreamstime.com%2Fb%2Ffemale-avatar-profile-picture-vector-female-avatar-profile-picture-vector-102690279.jpg&imgrefurl=https%3A%2F%2Fwww.dreamstime.com%2Ffemale-avatar-profile-picture-vector-female-avatar-profile-picture-vector-image102690279&tbnid=x4sHylrPsYoqBM&vet=12ahUKEwjkwODD-Lz0AhW_QkIHHQ74DIMQMygGegUIARDjAQ..i&docid=8NhnO-dTfawMHM&w=800&h=800&q=avatar%20profile%20picture&ved=2ahUKEwjkwODD-Lz0AhW_QkIHHQ74DIMQMygGegUIARDjAQ"
-        alt="Avatar"
-        className=" w-50 h-50 rounded"
-      />
+      {/* <Navigation bgView="#FBF4EA"/> */}
+      <Sidebar />
 
-      <Navbar
-        collapseOnSelect
-        expand="lg"
-        className="fetch-navbar pt-5"
-        style={{ backgroundColor: bgView }}
-      >
-        <Container>
-          <Navbar.Brand href="/" className="d-flex align-items-center">
+      <div className="container d-flex justify-content-center mt-5">
+        <div className="card prof p-3 py-4">
+          <div className="text-center">
+            {" "}
             <img
-              src="https://i.imgur.com/iXM4PWE.png"
-              alt=""
-              className="fetch-logo"
-            />{" "}
-            <h6 className="fetch-logo-txt mx-2">Fetch</h6>
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="m-auto">
-              <Nav.Link href="">
-                {" "}
-                <Badge
-                  className="favorite-tracker"
-                  badgeContent={8}
-                  color="error"
-                >
-                  <FavoriteIcon color="action" />
-                </Badge>{" "}
-                <span className="favorite-pets mx-3">Favorite Pets</span>
-              </Nav.Link>
-            </Nav>
-
-            <Nav>
-              <Button href="" className="login-btn mx-2">
-                Login
-              </Button>
-              <Button href="" className="signup-btn">
-                Signup
-              </Button>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-      <hr />
-      <div className="container mt-5">
-        <div className="d-flex row justify-content-center">
-          <div className="card col-4">
-            <img src="https://via.placeholder.com/350x150" />
-            <div className="card-body">
-              <h5 className="card-title">Your name here</h5>
-              <p className="card-text">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque
-                dignissimos ea similique eius quisquam, quibusdam voluptatibus
-                maxime mollitia iste temporibus enim quo iure, ratione, repellat
-                beatae harum. Excepturi, ut fugit?
-              </p>
-              <a href="" className="btn btn-primary">
-                Change your profile picture
-              </a>
+              src="https://i.imgur.com/stD0Q19.jpg"
+              width="100"
+              className="rounded-circle"
+            />
+            <hr />
+            <h3 className="mt-2">Maria Smantha</h3>{" "}
+            <span className="mt-1 clearfix">Starbucks barista</span>
+            <div className="row mt-3 mb-3">
+              <div className="col-md-6">
+                <h5>Pets Owned</h5> <span className="num">3</span>
+              </div>
+              <div className="col-md-6">
+                <h5>Age</h5> <span className="num">25</span>
+              </div>
+            </div>
+            <p className="mt-4">
+              I am a barista at Starbucks and studying psychology at The University of Alabama
+            </p>
+            <div className="profile mt-5">
+              {" "}
+              <button className="profile_button px-5">Edit Profile</button>{" "}
             </div>
           </div>
         </div>
       </div>
+      {/* <div className="container change">
+        <div>
+          <ul>
+            <p>Account Settings</p>
+            <p>Account Settings</p>
+            <p>Account Settings</p>
+            <p>Account Settings</p>
+            <p>Account Settings</p>
+            <p>Account Settings</p>
+          </ul>
+        </div>
+      </div> */}
     </>
   );
 };
 
-interface NavigationProps {
-  bgView: string;
-}
-
-export default Navigation;
+export default Profile;

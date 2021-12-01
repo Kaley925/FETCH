@@ -1,24 +1,34 @@
-// First override some or all individual color variables
-$primary: #25408f;
-$secondary: #8f5325;
-$success: #3e8d63;
-$info: #13101c;
-$warning: #945707;
-$danger: #d62518;
-$light: #f8f9fa;
-$dark: #343a40;
+* {
+  font-family: "Poppins", sans-serif;
+}
 
-// Then add them to your custom theme-colors map, together with any additional colors you might need
-$theme-colors: (
-	primary: $primary,
-	secondary: $secondary,
-	success: $success,
-	info: $info,
-	warning: $warning,
-	danger: $danger,
-	light: $light,
-	dark: $dark,
-	// add any additional color below
-);
+.fetch-navbar {
+  opacity: 0;
+}
 
-@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+.back-to-top {
+  cursor: pointer;
+}
+
+.back-to-top-text {
+  margin-bottom: 0 !important;
+  margin-right: 0.5rem;
+  font-weight: 700;
+}
+
+.back-to-top-icon {
+  color: #fead12;
+  font-size: 1.6rem;
+}
+
+.back-to-top-link {
+  text-decoration: none;
+  color: black;
+}
+
+.back-to-top-link:hover {
+  color: white;
+  transition: 0.3s ease-in-out;
+}
+
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
