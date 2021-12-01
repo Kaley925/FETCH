@@ -7,7 +7,7 @@ import "../scss/profile";
 const Profile = () => {
   return (
     <>
-      <Navigation bgView="#FBF4EA"/>
+      {/* <Navigation bgView="#FBF4EA"/> */}
       <Sidebar />
 
       <div className="container d-flex justify-content-center mt-5">
