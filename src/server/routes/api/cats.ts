@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import * as passport from 'passport';
-import fetch from 'node-fetch'
+import fetch from 'node-fetch';
 import { ReqUser } from '../../types';
 
 const router = Router();
