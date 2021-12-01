@@ -1,4 +1,11 @@
 import React, { useEffect, useRef } from "react";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import Container from "react-bootstrap/Container";
+import { NavLink } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import Badge from "@mui/material/Badge";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import Navigation from "../components/Navigation";
 import Sidebar from "../components/Sidebar";
 import "../scss/profile";
@@ -40,7 +47,6 @@ const Profile = () => {
           </div>
         </div>
       </div>
-
       {/* <div className="container change">
         <div>
           <ul>
@@ -58,4 +64,3 @@ const Profile = () => {
 };
 
 export default Profile;
-
