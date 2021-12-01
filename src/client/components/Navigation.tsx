@@ -26,7 +26,7 @@ const Navigation: React.FC<NavigationProps> = ({ bgView }) => {
       style={{ backgroundColor: bgView }}
     >
       <Container>
-        <Navbar.Brand href="#home" className="d-flex align-items-center">
+        <Navbar.Brand href="/" className="d-flex align-items-center">
           <img
             src="https://i.imgur.com/iXM4PWE.png"
             alt=""
