@@ -1,0 +1,49 @@
+.signup-modal-img {
+  background-image: url("https://i.imgur.com/1Ax7UOo.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+}
+
+.modal-header {
+  border-bottom: none !important;
+}
+
+.signup-username-label,
+.signup-password-label {
+  font-weight: 700;
+}
+
+.signup-modal-btn {
+  background-color: #fead12 !important;
+  padding: 0.5rem 2rem !important;
+  border: none !important;
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+.login-modal-img {
+  background-image: url("https://i.imgur.com/atwTTTP.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+}
+
+.login-username-label,
+.login-password-label {
+  font-weight: 700;
+}
+
+.login-modal-btn {
+  background-color: #fead12 !important;
+  padding: 0.5rem 2rem !important;
+  border: none !important;
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
