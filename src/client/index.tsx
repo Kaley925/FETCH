@@ -3,6 +3,7 @@ import { render } from "react-dom";
 import App from "./App";
 import "./scss/app";
 import "./scss/home";
+import "./scss/Cats";
 import "./scss/signuplogin.scss";
 
 
