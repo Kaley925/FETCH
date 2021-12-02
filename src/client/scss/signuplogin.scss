@@ -11,8 +11,16 @@
   border-bottom: none !important;
 }
 
+.signup-email-input,
+.signup-username-input,
+.signup-password-input {
+  border: 0.1rem solid #ced4da;
+  border-radius: 0.25rem;
+}
+
 .signup-username-label,
-.signup-password-label {
+.signup-password-label,
+.signup-email-label {
   font-weight: 700;
 }
 

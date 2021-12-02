@@ -87,7 +87,7 @@
 }
 
 .btn-cat-directory:hover {
-  background-color: black !important;
+  background-color: #fead12 !important;
   color: white !important;
   font-weight: 600 !important;
   border: none !important;
@@ -95,6 +95,16 @@
 
 .btn-arrow {
   margin-left: 0.4rem !important;
+}
+
+.dogs-links {
+  text-decoration: none !important;
+  color: white !important;
+}
+
+.cats-links {
+  text-decoration: none !important;
+  color: black !important;
 }
 
 .favorite-tracker {
@@ -111,22 +121,6 @@
 
 .css-to4x1n-MuiBadge-badge {
   background-color: #fead12 !important;
-}
-
-.animal-search {
-  border: none !important;
-}
-
-.animal-search-btn {
-  border: none !important;
-  z-index: 2;
-  background: #fead12 !important;
-}
-
-.animal-search-link {
-  text-decoration: none !important;
-  color: white;
-  font-weight: 700;
 }
 
 // Slider

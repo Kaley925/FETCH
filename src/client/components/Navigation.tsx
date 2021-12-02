@@ -45,7 +45,7 @@ const Navigation: React.FC<NavigationProps> = ({
               {" "}
               <Badge
                 className="favorite-tracker"
-                badgeContent={0}
+                badgeContent={1}
                 color="error"
               >
                 <FavoriteIcon color="action" />

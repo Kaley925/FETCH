@@ -140,10 +140,16 @@ const Home = () => {
             <div className="main-form-area d-flex flex-column mb-5">
               <div className="main-btn-area d-flex flex-column mb-5">
                 <button className="btn btn-dog-directory w-50 mb-3 p-2">
-                  Find Dogs <BsFillArrowRightCircleFill className="btn-arrow" />
+                  <Link className="dogs-links" to={"/Dogs"}>
+                    Find Dogs{" "}
+                    <BsFillArrowRightCircleFill className="btn-arrow" />
+                  </Link>
                 </button>
                 <button className="btn btn-cat-directory  w-50 p-2">
-                  Find Cats <BsFillArrowRightCircleFill className="btn-arrow" />
+                  <Link className="cats-links" to={"/Cats"}>
+                    Find Cats{" "}
+                    <BsFillArrowRightCircleFill className="btn-arrow" />
+                  </Link>
                 </button>
               </div>
             </div>

@@ -3,6 +3,7 @@ import { BsXLg } from "react-icons/bs";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import axios from "axios";
 
 const Signup: React.FC<SignupProps> = ({ modalView, handleSignupClose }) => {
   return (
@@ -39,6 +40,20 @@ const Signup: React.FC<SignupProps> = ({ modalView, handleSignupClose }) => {
                       className="signup-username-input"
                       type="text"
                       placeholder="Enter username"
+                    />
+                  </Form.Group>
+
+                  <Form.Group
+                    className="mb-4 signup-username-group"
+                    controlId="formBasicText"
+                  >
+                    <Form.Label className="signup-username-label">
+                      Email
+                    </Form.Label>
+                    <Form.Control
+                      className="signup-username-input"
+                      type="email"
+                      placeholder="Enter email"
                     />
                   </Form.Group>
 
