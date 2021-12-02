@@ -3,7 +3,7 @@ import { BsXLg } from "react-icons/bs";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { apiService } from "../services/api-services";
+import { apiService, TOKEN_KEY } from "../services/api-services";
 
 const Login: React.FC<LoginProps> = ({ modalView, handleLoginClose }) => {
   const [email, setEmail] = useState("");
@@ -13,12 +13,13 @@ const Login: React.FC<LoginProps> = ({ modalView, handleLoginClose }) => {
     e.preventDefault();
     apiService("/auth/login", "POST", { email, password })
       .then((token) => {
-        console.log(token);
+        localStorage.setItem(TOKEN_KEY, token);
       })
       .catch((err) => {
         console.log(err);
       });
   };
+
   return (
     <Modal size="xl" show={modalView} onHide={() => handleLoginClose()}>
       <Modal.Body className="login-modal">

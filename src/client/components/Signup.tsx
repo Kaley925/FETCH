@@ -3,9 +3,23 @@ import { BsXLg } from "react-icons/bs";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import axios from "axios";
+import { apiService } from "../services/api-services";
 
 const Signup: React.FC<SignupProps> = ({ modalView, handleSignupClose }) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSignup = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    apiService("/auth/register", "POST", { name, email, password })
+      .then((token) => {
+        console.log(token);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <Modal size="xl" show={modalView} onHide={() => handleSignupClose()}>
       <Modal.Body className="signup-modal">
@@ -40,6 +54,8 @@ const Signup: React.FC<SignupProps> = ({ modalView, handleSignupClose }) => {
                       className="signup-username-input"
                       type="text"
                       placeholder="Enter username"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
                     />
                   </Form.Group>
 
@@ -54,6 +70,8 @@ const Signup: React.FC<SignupProps> = ({ modalView, handleSignupClose }) => {
                       className="signup-username-input"
                       type="email"
                       placeholder="Enter email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </Form.Group>
 
@@ -68,10 +86,16 @@ const Signup: React.FC<SignupProps> = ({ modalView, handleSignupClose }) => {
                       className="signup-password-input"
                       type="password"
                       placeholder="Password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                     />
                   </Form.Group>
 
-                  <Button className="signup-modal-btn w-100 mb-3" type="submit">
+                  <Button
+                    onClick={handleSignup}
+                    className="signup-modal-btn w-100 mb-3"
+                    type="submit"
+                  >
                     Signup
                   </Button>
                 </Form>
