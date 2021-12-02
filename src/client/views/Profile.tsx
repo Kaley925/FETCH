@@ -1,22 +1,30 @@
-import React, { useEffect, useRef } from "react";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import Container from "react-bootstrap/Container";
-import { NavLink } from "react-router-dom";
-import Button from "react-bootstrap/Button";
-import Badge from "@mui/material/Badge";
-import FavoriteIcon from "@mui/icons-material/Favorite";
+import React, { useState, useEffect, useRef } from "react";
 import Navigation from "../components/Navigation";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../components/Sidebar/Sidebar";
 import "../scss/profile";
+import { Link } from "react-router-dom";
+import Signup from "../components/Signup";
+import { gsap } from "gsap";
 
 
 const Profile = () => {
+  const headerRef = useRef();
+  // Animation
+  useEffect(() => {
+    gsap.to(headerRef.current, { opacity: 1, delay: 1 });
+  }, []);
+
+  // Modal signup
+  const [showSignup, setShowSignup] = useState(false);
+  const handleSignupClose = () => setShowSignup(false);
+  const handleSignupShow = () => setShowSignup(true);
+
   return (
     <>
-      {/* <Navigation bgView="#FBF4EA"/> */}
+      <main ref={headerRef} id="main">
+      <Navigation bgView="#FBF4EA" handleLogin={undefined} handleSignup={undefined}/>
       <Sidebar />
-
+      
       <div className="container d-flex justify-content-center mt-5">
         <div className="card prof p-3 py-4">
           <div className="text-center">
@@ -27,7 +35,7 @@ const Profile = () => {
               className="rounded-circle"
             />
             <hr />
-            <h3 className="mt-2">Maria Smantha</h3>{" "}
+            <h3 className=" name mt-2">Maria Samantha</h3>{" "}
             <span className="mt-1 clearfix">Starbucks barista</span>
             <div className="row mt-3 mb-3">
               <div className="col-md-6">
@@ -42,11 +50,11 @@ const Profile = () => {
             </p>
             <div className="profile mt-5">
               {" "}
-              <button className="profile_button px-5">Edit Profile</button>{" "}
             </div>
           </div>
         </div>
       </div>
+      </main>
       {/* <div className="container change">
         <div>
           <ul>
