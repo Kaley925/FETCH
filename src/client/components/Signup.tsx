@@ -4,6 +4,7 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { apiService } from "../services/api-services";
+import { useNavigate } from "react-router-dom";
 
 const Signup: React.FC<SignupProps> = ({ modalView, handleSignupClose }) => {
   const [name, setName] = useState("");

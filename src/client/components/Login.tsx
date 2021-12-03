@@ -4,6 +4,7 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { apiService, TOKEN_KEY } from "../services/api-services";
+import { useNavigate } from "react-router-dom";
 
 const Login: React.FC<LoginProps> = ({ modalView, handleLoginClose }) => {
   const [email, setEmail] = useState("");
@@ -14,6 +15,7 @@ const Login: React.FC<LoginProps> = ({ modalView, handleLoginClose }) => {
     apiService("/auth/login", "POST", { email, password })
       .then((token) => {
         localStorage.setItem(TOKEN_KEY, token);
+        window.location.reload(false);
       })
       .catch((err) => {
         console.log(err);

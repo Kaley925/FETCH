@@ -100,14 +100,6 @@ const Home = () => {
     sliderRef.current.slickPrev();
   };
 
-  // Animal search
-  const animals = ["cats", "dogs", "rabbits", "hamsters"];
-  const animals2 = ["cat", "dog", "rabbit", "hamster"];
-  const [search, setSearch] = useState("");
-  const handleAnimalSearch = (e: any) => {
-    setSearch(e.target.value);
-  };
-
   // Modal login
   const [showLogin, setShowLogin] = useState(false);
   const handleLoginClose = () => setShowLogin(false);
@@ -120,13 +112,7 @@ const Home = () => {
 
   return (
     <>
-      <Signup modalView={showSignup} handleSignupClose={handleSignupClose} />
-      <Login modalView={showLogin} handleLoginClose={handleLoginClose} />
-      <Nav
-        handleLogin={handleLoginShow}
-        handleSignup={handleSignupShow}
-        bgView="#FBF4EA"
-      />
+    
       <main ref={headerRef} id="main">
         <div className="container main-container d-flex justify-content-between align-items-center">
           <div className="main-left">
