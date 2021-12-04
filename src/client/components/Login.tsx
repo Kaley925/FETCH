@@ -7,6 +7,10 @@ import { apiService, TOKEN_KEY } from "../services/api-services";
 import { useNavigate } from "react-router-dom";
 
 const Login: React.FC<LoginProps> = ({ modalView, handleLoginClose }) => {
+  // Redirect
+  const navigate = useNavigate();
+
+  // Login values
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -15,7 +19,14 @@ const Login: React.FC<LoginProps> = ({ modalView, handleLoginClose }) => {
     apiService("/auth/login", "POST", { email, password })
       .then((token) => {
         localStorage.setItem(TOKEN_KEY, token);
-        window.location.reload(false);
+        handleLoginClose();
+        navigate("/loading");
+        setTimeout(() => {
+          window.location.reload(false);
+        }, 3000);
+        setTimeout(() => {
+          navigate("/profile");
+        }, 2900);
       })
       .catch((err) => {
         console.log(err);

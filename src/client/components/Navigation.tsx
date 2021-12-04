@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Badge from "@mui/material/Badge";
 import FavoriteIcon from "@mui/icons-material/Favorite";
@@ -15,21 +15,19 @@ const Navigation: React.FC<NavigationProps> = ({
   handleLogout,
   isLoggedIn,
 }) => {
-  // Ref
-  const navRef = useRef();
-
-  // Animations
-  useEffect(() => {
-    gsap.to(navRef.current, { opacity: 1, delay: 1 });
-  }, []);
+  // Current Route
+  const currentRoute = useLocation();
 
   if (isLoggedIn) {
     return (
       <Navbar
-        ref={navRef}
         collapseOnSelect
         expand="lg"
-        className="fetch-navbar pt-4 pb-4 sticky-top"
+        className={
+          currentRoute.pathname === "/loading"
+            ? "d-none"
+            : "fetch-navbar pt-4 pb-4 sticky-top"
+        }
         style={{ backgroundColor: bgView }}
       >
         <Container>
@@ -80,10 +78,13 @@ const Navigation: React.FC<NavigationProps> = ({
   } else {
     return (
       <Navbar
-        ref={navRef}
         collapseOnSelect
         expand="lg"
-        className="fetch-navbar pt-4 pb-4 sticky-top"
+        className={
+          currentRoute.pathname === "/loading"
+            ? "d-none"
+            : "fetch-navbar pt-4 pb-4 sticky-top"
+        }
         style={{ backgroundColor: bgView }}
       >
         <Container>

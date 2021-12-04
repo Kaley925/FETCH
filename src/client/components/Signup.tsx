@@ -3,10 +3,14 @@ import { BsXLg } from "react-icons/bs";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { apiService } from "../services/api-services";
+import { apiService, TOKEN_KEY } from "../services/api-services";
 import { useNavigate } from "react-router-dom";
 
 const Signup: React.FC<SignupProps> = ({ modalView, handleSignupClose }) => {
+  // Redirect
+  const navigate = useNavigate();
+
+  // Signup values
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,7 +19,15 @@ const Signup: React.FC<SignupProps> = ({ modalView, handleSignupClose }) => {
     e.preventDefault();
     apiService("/auth/register", "POST", { name, email, password })
       .then((token) => {
-        console.log(token);
+        localStorage.setItem(TOKEN_KEY, token);
+        handleSignupClose();
+        navigate("/loading");
+        setTimeout(() => {
+          window.location.reload(false);
+        }, 3000);
+        setTimeout(() => {
+          navigate("/profile");
+        }, 2900);
       })
       .catch((err) => {
         console.log(err);

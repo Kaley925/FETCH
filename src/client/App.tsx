@@ -8,6 +8,7 @@ import Profile from "./views/Profile";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Nav from "./components/Navigation";
+import Loading from "./views/Loading";
 import { TOKEN_KEY } from "./services/api-services";
 
 /* HOOK REACT EXAMPLE */
@@ -43,6 +44,7 @@ const App = () => {
     <BrowserRouter>
       <Signup modalView={showSignup} handleSignupClose={handleSignupClose} />
       <Login modalView={showLogin} handleLoginClose={handleLoginClose} />
+
       <Nav
         handleLogin={handleLoginShow}
         handleSignup={handleSignupShow}
@@ -56,6 +58,7 @@ const App = () => {
         <Route path="/Cats" element={<Cats />} />
         <Route path="/Dogs" element={<Dogs />} />
         <Route path="/Profile" element={<Profile />} />
+        <Route path="/Loading" element={<Loading />} />
       </Routes>
     </BrowserRouter>
   );
