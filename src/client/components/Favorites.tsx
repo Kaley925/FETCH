@@ -17,7 +17,7 @@ const Favorites: React.FC<FavoritesProps> = ({
 interface FavoritesProps {
   modalView: boolean;
   handleCloseModal: any;
-  favorites: 
+  favorites: any;
 }
 
 export default Favorites;
