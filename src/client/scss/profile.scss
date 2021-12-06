@@ -1,0 +1,50 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans', sans-serif
+}
+
+.prof {
+    box-shadow: -20px 20px 60px #ddc6a4;
+}
+
+.card {
+    height: 100%
+}
+
+.card {
+    display: grid;
+    place-items: center;
+}
+
+.card {
+    color: rgb(0, 0, 0);
+    width: 350px;
+    border-radius: 10px;
+    background-color: #FBF4EA;
+    border: none
+}
+
+.num {
+    color: rgb(0, 0, 0) !important;
+}
+
+.profile_button {
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    border: none;
+    outline: 0 !important;
+    border-radius: 50px;
+    background: #fead12;
+    // box-shadow: 28px 28px 57px #FBF4EA, -28px -28px 57px #FBF4EA
+}
+
+.change {
+    text-align:left
+}
+
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
