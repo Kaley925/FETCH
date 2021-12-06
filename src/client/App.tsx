@@ -6,9 +6,6 @@ import Cats from "./views/Cats";
 import Dogs from "./views/Dogs";
 import Profile from "./views/Profile";
 
-/* HOOK REACT EXAMPLE */
-
-
 const App = () => {
   console.log();
   return (

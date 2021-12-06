@@ -4,13 +4,25 @@ import * as AiIcons from "react-icons/ai";
 import { Link } from "react-router-dom";
 import "./../../scss/sidebar";
 import { IconContext } from "react-icons";
+import EditModal from "../components/EditModal";
 
 function Sidebar() {
   const [sidebar, setSidebar] = useState(false);
+  //   const [openModal, setOpenModal] = useState(false)
+  //   const [closeModal, setCloseModal] = useState(false)
   const showSidebar = () => setSidebar(!sidebar);
+
+  //   const handleOpenModal = () => {
+  //     setOpenModal(true)
+  //   }
+
+  //   const handleCloseModal = () => {
+  // setCloseModal(true)
+  //   }
 
   return (
     <>
+      {/* <EditModal modalView={openModal} handleModalClose={handleCloseModal} /> */}
       <IconContext.Provider value={{ color: "#fead12" }}>
         <div className="sidebar">
           <Link to="#" className="menu-paw">
@@ -27,7 +39,7 @@ function Sidebar() {
             <li className="sidebar-text">
               <Link to="#">
                 <AiIcons.AiFillAccountBook />
-                <span className="text-span" >Change Avatar</span>
+                <span className="text-span">Change Avatar</span>
               </Link>
             </li>
             <li className="sidebar-text">
