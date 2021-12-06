@@ -14,6 +14,7 @@ const Navigation: React.FC<NavigationProps> = ({
   handleSignup,
   handleLogout,
   isLoggedIn,
+  favoriteNumber,
 }) => {
   // Current Route
   const currentRoute = useLocation();
@@ -46,7 +47,7 @@ const Navigation: React.FC<NavigationProps> = ({
                 {" "}
                 <Badge
                   className="favorite-tracker"
-                  badgeContent={1}
+                  badgeContent={favoriteNumber}
                   color="error"
                 >
                   <FavoriteIcon color="action" />
@@ -133,6 +134,7 @@ interface NavigationProps {
   handleSignup: any;
   handleLogout: any;
   isLoggedIn: boolean;
+  favoriteNumber: number;
 }
 
 export default Navigation;

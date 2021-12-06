@@ -258,6 +258,10 @@
     align-items: center;
   }
 
+  #main .main-img {
+    display: none !important;
+  }
+
   #main .main-title {
     font-size: 3rem;
   }
@@ -286,6 +290,14 @@
     height: 12rem !important;
     padding-bottom: 3rem !important;
   }
+
+  #main .btn-dog-directory {
+    width: 100% !important;
+  }
+
+  #main .btn-cat-directory {
+    width: 100% !important;
+  }
 }
 
 @media only screen and (max-width: 890px) {
@@ -311,10 +323,6 @@
   html,
   body {
     overflow-x: hidden !important;
-  }
-
-  #main {
-    height: 100vh !important;
   }
 
   #main .main-title {

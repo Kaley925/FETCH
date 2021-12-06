@@ -89,4 +89,15 @@
   color: white;
 }
 
+.invalid-login-hide {
+  color: red;
+  display: none !important;
+}
+
+.invalid-login {
+  color: red;
+  display: block !important;
+  margin-bottom: 2rem !important;
+}
+
 @import "../../../node_modules/bootstrap/scss/bootstrap.scss";

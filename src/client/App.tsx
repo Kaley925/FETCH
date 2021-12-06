@@ -38,7 +38,14 @@ const App = () => {
   const handleSignupClose = () => setShowSignup(false);
   const handleSignupShow = () => setShowSignup(true);
 
-  // Nav logout
+  //  Favorites
+  const [favorites, setFavorites] = useState([]);
+  const handleFavorites = (cats) => {
+    setFavorites([...favorites, cats]);
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+    const favoritesParsed = JSON.parse(localStorage.getItem("favorites"));
+    console.log(favoritesParsed);
+  };
 
   return (
     <BrowserRouter>
@@ -51,11 +58,12 @@ const App = () => {
         handleLogout={handleLogout}
         isLoggedIn={isLoggedIn}
         bgView="#FBF4EA"
+        favoriteNumber={favorites.length}
       />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Home />} />
-        <Route path="/Cats" element={<Cats />} />
+        <Route path="/Cats" element={<Cats favorite={handleFavorites} />} />
         <Route path="/Dogs" element={<Dogs />} />
         <Route path="/Profile" element={<Profile />} />
         <Route path="/Loading" element={<Loading />} />
