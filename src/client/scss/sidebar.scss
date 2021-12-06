@@ -1,34 +1,52 @@
 .sidebar {
-    position: absolute;
-    // background-color: black;
     height: 80px;
     width: 80px;
-    display: flex;
-    justify-content: start;
-    align-items: center;
+    padding: 10px;
+    padding-top: 22px;
+    position: absolute;
+    left: 1;
+    top: 106px;
 }
 
 .menu-paw {
-    margin-left: 2rem;
+    margin: 12px;
     font-size: 2rem;
     background: none;
 }
 
 .menu {
-    background-color: black;;
+    background-color: black;
+    height: 615px;
     width: 250px;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
     position: absolute;
-    top: 80;
+    top: 106px;
     left: -100%;
     transition: 850ms;
 }
 
 .menu.active {
+    top: 106px;
     left: 0;
     transition: 350ms;
+}
+
+.menu-items {
+    height: 100%;
+    width: 100%;
+}
+
+.menu-toggle {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.menu-bars {
+    color: rgb(254, 173, 18);
+    height: 20px;
+    width: 20px;
+    border: double;
 }
 
 .sidebar-text {
@@ -56,22 +74,15 @@
     background-color: #fead12;
 }
 
-.menu-items {
-    height: 100%;
-    width: 100%;
-}
-
-
-.menu-toggle {
-    // background-color: black;
-    width: 100%;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-span {
+.text {
     margin-left: 16px;
+    margin-bottom: 20px;
 }
 
+svg {
+    margin-right: 5px;
+}
+
+.text-span {
+    width: 160px;
+}
