@@ -18,23 +18,23 @@ body{
  
 }
 
-.cat-top-button{
+.dog-top-button{
    
     background-color:rgb(250, 187, 50) !important;
     border:none;
     color:white;
     font-size:20pt;
 }
-.cat-top-button:hover{
+.dog-top-button:hover{
     background-color:black !important;
     color:white !important;
 }
-.cat-lower-title{
+.dog-lower-title{
     
     text-align: center;
     
 }
-.cat-img{
+.dog-img{
     height: 30rem !important;
     width:auto !important;
 }
@@ -71,11 +71,11 @@ margin: auto !important;
     height:30rem;
     padding-top:100px!important;
 }
-.cat-favorite-btn{
+.dog-favorite-btn{
     padding:3rem;
     
 }
-.cat-favorite-btn:hover{
+.dog-favorite-btn:hover{
     
     color:black;
 }
@@ -86,7 +86,7 @@ margin: auto !important;
     // left: 50px;
     
 }
-.btn-view-cat{
+.btn-view-dog{
     background-color:none;
    border: 0.1rem solid #fead12;
    font-weight: 600;
@@ -95,7 +95,7 @@ margin: auto !important;
    width:18rem;
    
 }
-.btn-view-cat:hover{
+.btn-view-dog:hover{
     transition: 0.3s ease-in-out;
     background-color: black;
     font-weight:600 ;
