@@ -9,12 +9,13 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import Navigation from "../components/Navigation";
 import Sidebar from "../components/Sidebar";
 import "../scss/profile";
-
+import { TOKEN_KEY } from "../services/api-services";
 
 const Profile = () => {
+  const info = localStorage.getItem(TOKEN_KEY);
+  console.log(info);
   return (
     <>
-      {/* <Navigation bgView="#FBF4EA"/> */}
       <Sidebar />
 
       <div className="container d-flex justify-content-center mt-5">
@@ -38,7 +39,8 @@ const Profile = () => {
               </div>
             </div>
             <p className="mt-4">
-              I am a barista at Starbucks and studying psychology at The University of Alabama
+              I am a barista at Starbucks and studying psychology at The
+              University of Alabama
             </p>
             <div className="profile mt-5">
               {" "}
