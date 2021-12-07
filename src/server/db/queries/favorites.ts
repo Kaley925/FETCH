@@ -1,24 +1,11 @@
 import { Query } from "../"
 
-const all = async () => Query(
+const allFavs = async (userid: number) => Query(
     `SELECT
-        favorites.userid,
-        favorites.name,
-        favorites.breed,
-        favorites.location
-    FROM favorites
-    ORDER BY _created DESC`);
-
-const one = async (favoritesid: number) => Query(
-    `SELECT
-        favorites.id,
-        favorites.name,
-        favorites.breed,
-        favorites.location
-    FROM favorites
-    WHERE favorites.id = ?`, [favoritesid])
+        pets.* 
+    FROM pets
+    WHERE favorites.userid = ?` [userid]);
 
 export default {
-    all,
-    one
+    allFavs
 }

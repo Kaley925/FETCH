@@ -9,7 +9,7 @@ const Cats = () => {
   }, []);
 
   const apiKey =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjUsImVtYWlsIjoicmVnaXN0ZXJhZ2FpbkB0ZXN0LmNvbSIsInJvbGUiOjEsImlhdCI6MTYzODMwNTIzNCwiZXhwIjoxNjM5NjAxMjM0fQ.JGaUfqG53oIRCemFbIyPQS0934djK2tb028fx2KwmX4";
+  "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJoWEkxQlQyOHcwRDY0c2ZkdW0wNlhpc1NNZHJYcDF2bVBoWGlTdnhhVXZqbW10SGJvWCIsImp0aSI6Ijc3ZGEwODRkZGI3YWRiNzMxNGU2NmRhZTRjZGY0ODNkZGUxNzRlMWIwNzY4OWQwOWZmZDJhYWNkMzI2NWI4ODQ3ZTkxMWE4OWQ2Nzk4OTkxIiwiaWF0IjoxNjM4ODk0MzQwLCJuYmYiOjE2Mzg4OTQzNDAsImV4cCI6MTYzODg5Nzk0MCwic3ViIjoiIiwic2NvcGVzIjpbXX0.VCAdv4E-meZxbW3fAQFR7_BzXM22f79K27JRw-cbf3rfWgSv8TZDK-TJMv9UGwCKzedHCz9jdpTXHrZRyhanjLZ3JJ8Xow3kg8Pgnt4TdF1vA1djbZ0UAXtL0l4GgtiaXzjtHjBnMn4qC-vSlJUkd77Ibj1xn__Aoj5jIeq8idWIeGTOUgvNpksAonX3_XjYmGDBjO4Eu0-pZwlyhfmzFE6oCxCjjOesWTcVmzUTipcJKhKII-Qlah8bZ-U7_zuyxArKAAnnA6GenOM1xF7iOCH6pjXBQIFSySl00xg5zLZwtAzrjdd8b5orNBBE3L0Ea1K2_Z4ptDGy1XfSMAncCw";
 
   const getCatData = async () => {
     const res = await fetch("/api/cats", {
@@ -38,8 +38,8 @@ const Cats = () => {
                 home. Adopt a cat today to not only save a life, but to also
                 gain a best friend in the process!
               </h4>
-              <a className="mt-4 cat-top-button btn" href="#scroll-bot">
-                See Our Cats Below
+              <button className="mt-4 cat-top-button btn">
+                See Our Cats Below{" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -50,7 +50,7 @@ const Cats = () => {
                 >
                   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z" />
                 </svg>
-              </a>
+              </button>
             </div>
             <div className="cat-img">
               <img
@@ -61,7 +61,6 @@ const Cats = () => {
             </div>
           </div>
         </header>
-        {/* <img className="bg-img" src="https://i.imgur.com/Qow7bWL.png" alt="bg"/> */}
 
         <div className="why-adopt-section">
           <div className="container why-adopt-container">
@@ -111,7 +110,7 @@ const Cats = () => {
         </div>
       </div>
 
-      <div className="bottom-container" id="scroll-bot">
+      <div className="bottom-container">
         <div className="cat-info container">
           <section className="row justify-content-center ">
             <h1 className="row justify-content-center mt-5">Find Cats</h1>
@@ -131,6 +130,7 @@ const Cats = () => {
                   <button
                     type="button"
                     className="btn btn-dark cat-favorite-btn"
+                    onClick={() => favorite(cats)}
                   >
                     Favorite Me
                   </button>
@@ -147,4 +147,9 @@ const Cats = () => {
     </>
   );
 };
+
+interface CatsProps {
+  favorite: any;
+}
+
 export default Cats;

@@ -3,8 +3,36 @@ import { BsXLg } from "react-icons/bs";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { apiService, TOKEN_KEY } from "../services/api-services";
+import { useNavigate } from "react-router-dom";
 
 const Signup: React.FC<SignupProps> = ({ modalView, handleSignupClose }) => {
+  // Redirect
+  const navigate = useNavigate();
+
+  // Signup values
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSignup = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    apiService("/auth/register", "POST", { name, email, password })
+      .then((token) => {
+        localStorage.setItem(TOKEN_KEY, token);
+        handleSignupClose();
+        navigate("/loading");
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
+        setTimeout(() => {
+          navigate("/profile");
+        }, 2900);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <Modal size="xl" show={modalView} onHide={() => handleSignupClose()}>
       <Modal.Body className="signup-modal">
@@ -39,6 +67,24 @@ const Signup: React.FC<SignupProps> = ({ modalView, handleSignupClose }) => {
                       className="signup-username-input"
                       type="text"
                       placeholder="Enter username"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                  </Form.Group>
+
+                  <Form.Group
+                    className="mb-4 signup-username-group"
+                    controlId="formBasicText"
+                  >
+                    <Form.Label className="signup-username-label">
+                      Email
+                    </Form.Label>
+                    <Form.Control
+                      className="signup-username-input"
+                      type="email"
+                      placeholder="Enter email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </Form.Group>
 
@@ -53,10 +99,16 @@ const Signup: React.FC<SignupProps> = ({ modalView, handleSignupClose }) => {
                       className="signup-password-input"
                       type="password"
                       placeholder="Password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                     />
                   </Form.Group>
 
-                  <Button className="signup-modal-btn w-100 mb-3" type="submit">
+                  <Button
+                    onClick={handleSignup}
+                    className="signup-modal-btn w-100 mb-3"
+                    type="submit"
+                  >
                     Signup
                   </Button>
                 </Form>

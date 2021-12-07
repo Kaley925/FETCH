@@ -12,7 +12,7 @@ const ScrollReveal: FC<ScrollRevealProps> = ({ children, style }) => {
       scrollReveal().reveal(sectionRef.current, {
         reset: false,
 
-        delay: 500,
+        delay: 600,
       });
   }, []);
 

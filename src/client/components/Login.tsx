@@ -3,8 +3,36 @@ import { BsXLg } from "react-icons/bs";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { apiService, TOKEN_KEY } from "../services/api-services";
+import { useNavigate } from "react-router-dom";
 
 const Login: React.FC<LoginProps> = ({ modalView, handleLoginClose }) => {
+  // Redirect
+  const navigate = useNavigate();
+
+  // Login values
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    apiService("/auth/login", "POST", { email, password })
+      .then((token) => {
+        localStorage.setItem(TOKEN_KEY, token);
+        handleLoginClose();
+        navigate("/loading");
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
+        setTimeout(() => {
+          navigate("/profile");
+        }, 2900);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <Modal size="xl" show={modalView} onHide={() => handleLoginClose()}>
       <Modal.Body className="login-modal">
@@ -32,12 +60,14 @@ const Login: React.FC<LoginProps> = ({ modalView, handleLoginClose }) => {
                     controlId="formBasicText"
                   >
                     <Form.Label className="login-username-label">
-                      Username
+                      Email
                     </Form.Label>
                     <Form.Control
                       className="login-username-input"
-                      type="text"
-                      placeholder="Enter username"
+                      type="email"
+                      placeholder="Enter email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </Form.Group>
 
@@ -52,10 +82,16 @@ const Login: React.FC<LoginProps> = ({ modalView, handleLoginClose }) => {
                       className="login-password-input"
                       type="password"
                       placeholder="Password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                     />
                   </Form.Group>
 
-                  <Button className="login-modal-btn w-100 mb-3" type="submit">
+                  <Button
+                    onClick={handleLogin}
+                    className="login-modal-btn w-100 mb-3"
+                    type="submit"
+                  >
                     Login
                   </Button>
                 </Form>
