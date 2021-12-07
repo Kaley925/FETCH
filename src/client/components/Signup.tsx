@@ -23,7 +23,7 @@ const Signup: React.FC<SignupProps> = ({ modalView, handleSignupClose }) => {
         handleSignupClose();
         navigate("/loading");
         setTimeout(() => {
-          window.location.reload(false);
+          window.location.reload();
         }, 3000);
         setTimeout(() => {
           navigate("/profile");
