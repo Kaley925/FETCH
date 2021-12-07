@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
 
-const Cats = () => {
+const Cats: React.FC<CatsProps> = ({ favorite }) => {
   const [cats, setCats] = useState([]);
 
   useEffect(() => {

@@ -8,7 +8,7 @@ const router = Router();
 
 router.get('/', passport.authenticate('jwt'), async (req: ReqUser, res) => {
     try {
-        const apiKey = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJoWEkxQlQyOHcwRDY0c2ZkdW0wNlhpc1NNZHJYcDF2bVBoWGlTdnhhVXZqbW10SGJvWCIsImp0aSI6IjRmZGFjMDkzMTkyZDM4ZjFiNzE0MzlhYmFiNzJkZjNkODA5YmY2YjQ3NDU1Y2U1NTgyMmMxMzMyZGE1MDA4YzkwMjJmN2M1ZDNiYjVkYzk4IiwiaWF0IjoxNjM4ODk0OTEyLCJuYmYiOjE2Mzg4OTQ5MTIsImV4cCI6MTYzODg5ODUxMiwic3ViIjoiIiwic2NvcGVzIjpbXX0.LrTk8mvdEsy-Gb9NrsdjiIH98etc2WvQ_fB39h6FNxW7hLVfDckFyGwIQgBZd6BPP7vduqEbnErzZ5TqN1OEI9FUeudpo63UMzE1KtNurIA_zMknKp_4V9HgTC7YfHdXz4gsuhjt-0JTDyVlmldTcvgEoJhL6t90gxpjwX1rnlm0bl8cnlhPxzgt_9YlYPWKIZ0AZwIjINTHp157p8pGpRtEVbWPKm0URIQPSiMu68vsna9VbyMeoHQUYU0bYRvhnSaIlcWc8Ud6wh7MqVSsGVtweuFDJY5-T67mMc1IwC0Ct-aLy25x0dtMHqpQxMlMueIimCgTJw7YhYBeCpAP3w";
+        const apiKey = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJoWEkxQlQyOHcwRDY0c2ZkdW0wNlhpc1NNZHJYcDF2bVBoWGlTdnhhVXZqbW10SGJvWCIsImp0aSI6IjYwZTc4ZGU0OWFmNDk1ODBkMzk0NDRlNDU4N2M5YWExNmQxNGI3MGE5NzJmZmZiZmU4ZWU0MzkwYzJkOTM1YTdlYzQyNWZlZGI4ZmJiZTEyIiwiaWF0IjoxNjM4OTAzNjc3LCJuYmYiOjE2Mzg5MDM2NzcsImV4cCI6MTYzODkwNzI3Niwic3ViIjoiIiwic2NvcGVzIjpbXX0.yCa1CiCnMGgAby5dz02Me0bolH75bqTPB9PwhzD0G2jUNlQ56IwpXoF_7EGyMiVniduJwOxbOwtCusLHW6d52cvSW36q-ZNFYQ4uEZ7Nviq6GPSS_rFyX4OGj59D55AllOFlRxFPqholaZymAHuBg7tEV2KU2itBWqpH8B05WkWix7F5y_jOUJynla-cx_BxSAkGO0jb3hpv7Nw2-7CXjHMVeW0Vp2XZVBBJmYP87MfEM6QWE4hXMZT9buEoXYaYBnsueNLLTKSpLjKEEdf17eQ6cphPwQWchZjg07BQbBYLxmIE1cYhQ0iuTWjoYt65PikIPk3XHYj7XZVrVFEupw";
         const resp = await fetch(`https://api.petfinder.com/v2/animals`, {
             headers: {
                 'Authorization': `Bearer ${apiKey}`
