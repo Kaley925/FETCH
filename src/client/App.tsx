@@ -10,6 +10,7 @@ import Signup from "./components/Signup";
 import Nav from "./components/Navigation";
 import Loading from "./views/Loading";
 import { TOKEN_KEY } from "./services/api-services";
+import Favorites from "./views/Favorites";
 
 /* HOOK REACT EXAMPLE */
 
@@ -20,12 +21,14 @@ const App = () => {
   useEffect(() => {
     if (localStorage.getItem(TOKEN_KEY)) {
       setLoggedIn(true);
+    } else {
+      setLoggedIn(false);
     }
   }, []);
 
   const handleLogout = () => {
     setLoggedIn(false);
-    localStorage.clear();
+    localStorage.removeItem(TOKEN_KEY);
   };
 
   // Modal login
@@ -39,13 +42,24 @@ const App = () => {
   const handleSignupShow = () => setShowSignup(true);
 
   //  Favorites
+
+  useEffect(() => {
+    const movieFavorites = JSON.parse(localStorage.getItem("favorites"));
+    setFavorites(movieFavorites);
+  }, []);
+
+  const saveFavoritesToLocalStorage = (faves) => {
+    localStorage.setItem("favorites", JSON.stringify(faves));
+  };
+
   const [favorites, setFavorites] = useState([]);
   const handleFavorites = (cats) => {
-    setFavorites([...favorites, cats]);
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-    const favoritesParsed = JSON.parse(localStorage.getItem("favorites"));
-    console.log(favoritesParsed);
+    const savedFavorites = [...favorites, cats];
+    setFavorites(savedFavorites);
+    saveFavoritesToLocalStorage(savedFavorites);
   };
+
+  console.log(favorites);
 
   return (
     <BrowserRouter>
@@ -58,7 +72,7 @@ const App = () => {
         handleLogout={handleLogout}
         isLoggedIn={isLoggedIn}
         bgView="#FBF4EA"
-        favoriteNumber={favorites.length}
+        favoriteNumber={1}
       />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -67,6 +81,10 @@ const App = () => {
         <Route path="/Dogs" element={<Dogs />} />
         <Route path="/Profile" element={<Profile />} />
         <Route path="/Loading" element={<Loading />} />
+        <Route
+          path="/Favorites"
+          element={<Favorites favorites={favorites} />}
+        />
       </Routes>
     </BrowserRouter>
   );
