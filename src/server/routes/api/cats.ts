@@ -1,3 +1,4 @@
+
 import { Router } from "express";
 import * as passport from "passport";
 import fetch from "node-fetch";
@@ -15,6 +16,7 @@ router.get("/", passport.authenticate("jwt"), async (req: ReqUser, res) => {
       },
     });
     const body = await resp.json();
+
 
     const allCats = body.animals.map(
       (animals: {

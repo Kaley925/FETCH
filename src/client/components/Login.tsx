@@ -22,7 +22,7 @@ const Login: React.FC<LoginProps> = ({ modalView, handleLoginClose }) => {
         handleLoginClose();
         navigate("/loading");
         setTimeout(() => {
-          window.location.reload(false);
+          window.location.reload();
         }, 3000);
         setTimeout(() => {
           navigate("/profile");

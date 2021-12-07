@@ -8,23 +8,23 @@ const find = async (column: string, value: string) =>
 const insert = async (newUser: { name: string, email: string, password: string }) =>
     Query<MysqlResponse>('INSERT INTO users SET ?', newUser);
 
-// const all = async () => Query(
-//     `SELECT
-//         users.id,
-//         users.name
-//     FROM users
-//     ORDER BY created_at ASC`);
+const all = async () => Query(
+    `SELECT
+        users.id,
+        users.name
+    FROM users
+    ORDER BY created_at ASC`);
 
-// const one = async (usersid: number) => Query(
-//     `SELECT
-//         users.id,
-//         users.name
-//     FROM users
-//     WHERE users.id = ?`, [usersid])
+const one = async (usersid: number) => Query(
+    `SELECT
+        users.id,
+        users.name
+    FROM users
+    WHERE users.id = ?`, [usersid])
 
 export default {
     find,
-    insert
-    // all,
-    // one,
+    insert,
+    all,
+    one,
 }

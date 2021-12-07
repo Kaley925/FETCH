@@ -53,10 +53,12 @@ const App = () => {
   };
 
   const [favorites, setFavorites] = useState([]);
+
   const handleFavorites = (cats) => {
     const savedFavorites = [...favorites, cats];
     setFavorites(savedFavorites);
     saveFavoritesToLocalStorage(savedFavorites);
+
   };
 
   console.log(favorites);
