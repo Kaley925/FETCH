@@ -13,6 +13,7 @@ const Login: React.FC<LoginProps> = ({ modalView, handleLoginClose }) => {
   // Login values
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  console.log("test");
 
   const handleLogin = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
