@@ -117,7 +117,6 @@ const Cats: React.FC<CatsProps> = ({ favorite }) => {
             {cats.map((cats) => (
               <div className="card" style={{ width: "36rem" }}>
                 <div className="card-body" key={`cat-name-${cats.id}`}>
-                  {/* <img src={cats.photos} className="card-img-top"/> */}
                   <h4 className="card-title">My Name is {cats.name}</h4>
                   <h5 className="card-text">Description:{cats.description}</h5>
                   {cats.age == "adult" ? (

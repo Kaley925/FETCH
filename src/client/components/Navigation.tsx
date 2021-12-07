@@ -13,6 +13,7 @@ const Navigation: React.FC<NavigationProps> = ({
   handleLogin,
   handleSignup,
   handleLogout,
+
   isLoggedIn,
   favoriteNumber,
 }) => {
@@ -43,7 +44,7 @@ const Navigation: React.FC<NavigationProps> = ({
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="m-auto fetch-navigation">
-              <Nav.Link href="">
+              <Nav.Link as={NavLink} to="/favorites">
                 {" "}
                 <Badge
                   className="favorite-tracker"
@@ -100,7 +101,7 @@ const Navigation: React.FC<NavigationProps> = ({
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="m-auto fetch-navigation">
-              <Nav.Link href="">
+              <Nav.Link as={NavLink} to="/favorites">
                 {" "}
                 <Badge
                   className="favorite-tracker"

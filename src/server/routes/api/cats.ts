@@ -1,8 +1,8 @@
-import { Router } from 'express';
-import * as passport from 'passport';
-import fetch from 'node-fetch';
-import { ReqUser } from '../../types';
-// import { makeCall, getOAuth } from '../../utilities/petfinder';
+
+import { Router } from "express";
+import * as passport from "passport";
+import fetch from "node-fetch";
+import { ReqUser } from "../../types";
 
 const router = Router();
 
@@ -16,29 +16,43 @@ router.get('/', passport.authenticate('jwt'), async (req: ReqUser, res) => {
         })
         const body = await resp.json()
 
-        const allCats = body.animals.map((animals: { id: number; name: string; type: string; description: any; age: string; url: string; distance: any, photos: string; videos: string; _links: string; contact: string}) => {
-            if (animals.type === 'Cat') {
-                return {
-                    id: animals.id,
-                    name: animals.name,
-                    type: animals.type,
-                    description: animals.description,
-                    age: animals.age,
-                    url: animals.url,
-                    distance: animals.distance,
-                    photos: animals.photos,
-                    videos: animals.videos,
-                    _links: animals._links,
-                    contact: animals.contact
-                }
-            } 
-        });
 
-        res.json(allCats.filter((animal: any) => animal));
+    const allCats = body.animals.map(
+      (animals: {
+        id: number;
+        name: string;
+        type: string;
+        description: any;
+        age: string;
+        url: string;
+        distance: any;
+        photos: string;
+        videos: string;
+        _links: string;
+        contact: string;
+      }) => {
+        if (animals.type === "Cat") {
+          return {
+            id: animals.id,
+            name: animals.name,
+            type: animals.type,
+            description: animals.description,
+            age: animals.age,
+            url: animals.url,
+            distance: animals.distance,
+            photos: animals.photos,
+            videos: animals.videos,
+            _links: animals._links,
+            contact: animals.contact,
+          };
+        }
+      }
+    );
 
-    } catch (error) {
-        res.status(500).json({ error: 'Something went wrong!' });
-    }
+    res.json(allCats.filter((animal: any) => animal));
+  } catch (error) {
+    res.status(500).json({ error: "Something went wrong!" });
+  }
 });
 
 export default router;
