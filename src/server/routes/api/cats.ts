@@ -2,12 +2,13 @@ import { Router } from 'express';
 import * as passport from 'passport';
 import fetch from 'node-fetch';
 import { ReqUser } from '../../types';
+// import { makeCall, getOAuth } from '../../utilities/petfinder';
 
 const router = Router();
 
 router.get('/', passport.authenticate('jwt'), async (req: ReqUser, res) => {
     try {
-        const apiKey = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJoWEkxQlQyOHcwRDY0c2ZkdW0wNlhpc1NNZHJYcDF2bVBoWGlTdnhhVXZqbW10SGJvWCIsImp0aSI6IjdlZjliYzgxZTAyMDkzMGMzNDg2OThhMGJiM2QzMzM4NmNkMzg4NzBmN2VmMDM3M2E4YmNlYTFiZDQ5Nzk1YTM0ZWU2Y2RhN2EyZTBjMWM1IiwiaWF0IjoxNjM4Mzg3MTc0LCJuYmYiOjE2MzgzODcxNzQsImV4cCI6MTYzODM5MDc3NCwic3ViIjoiIiwic2NvcGVzIjpbXX0.qDuhVSXn5PFhx6haweCZ0K2tn7Dxs2woEKwqKpvA39tMlN2Mm3kCGnKI7A0WmAoynCODJjy8ra4EunotWWXKQDPftSOBFi6aurbskbGaTO5ok64woltEP-BFsHIlgCuU7fi78fGKPl0xALSRh9nZLsP7Xivw2yv9x8WcePIC_022ozLknDcfz9ih_OEAXuLAWHNjromon6leXlVI1MmuJV_TPbLrgyEfi93kE4g7MBf96tyKO2MZXkjxw0-0lRLJSMbWL_WybxyGQEp780TBF1N7qAuo4QUX-Uku9m00bTe8msPRLNZHSA01WzksVKYZuj_yCcurgclvzady4cW6XQ";
+        const apiKey = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJoWEkxQlQyOHcwRDY0c2ZkdW0wNlhpc1NNZHJYcDF2bVBoWGlTdnhhVXZqbW10SGJvWCIsImp0aSI6ImRiMWViMWMzMjdjNGRkOTA3YzIzZjA0OTU2YWU2OWQ3YmFjNGRiNGRkYjc0ZDA4ZjRlMDI2NDk5ZjUyNDM2NmE3YjNhM2MxOGQ3M2U0Njk2IiwiaWF0IjoxNjM4NDgwMDk0LCJuYmYiOjE2Mzg0ODAwOTQsImV4cCI6MTYzODQ4MzY5NCwic3ViIjoiIiwic2NvcGVzIjpbXX0.lGrjtopngvThZ-TAok52uqiN8D9B_u9N_wyxjk4t6I9VLhQyT3jBxqkL3gyfM2GBLbwGJcbUh5ab8-zhWVol70yejzIjOVyRRsdno6PreKYaWaRQVMbzz6J45mtT-eyQPysq-8PYUkYcWXx118WXyIsvmAU--dv9Ra8FJFIfI1FmI6IE4Av8xD5AfMlgRgcwUEsgLaGQC9rKCECzwlwChZYm4x9T_qbO3b0gLNy3Zyj3eiHrPWdttZqZ6cnreSVcPm7oAkKZouf3PpexsQdMcQkLsM2HHf1MDEJtMVUE5mX9BmY63QRY9UzrR_VaRJ6vcRsJLUjmD14aTP--pk_Gcg";
         const resp = await fetch(`https://api.petfinder.com/v2/animals`, {
             headers: {
                 'Authorization': `Bearer ${apiKey}`
