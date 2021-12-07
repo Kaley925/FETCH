@@ -5,6 +5,6 @@ import "./scss/app";
 import "./scss/home";
 import "./scss/Cats";
 import "./scss/signuplogin.scss";
-
+import "./scss/favorites.scss";
 
 render(<App />, document.getElementById("root"));

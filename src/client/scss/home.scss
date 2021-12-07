@@ -177,6 +177,10 @@
   border-bottom-right-radius: 0.5rem;
 }
 
+#slider-body {
+  width: auto !important;
+}
+
 .years {
   background: #fead12 !important;
 }
@@ -233,6 +237,24 @@
 }
 
 // Responsive styles
+
+// @media only screen and (max-width: 1399px) {
+//   #slider-body {
+//     width: 22rem !important;
+//   }
+// }
+
+// @media only screen and (max-width: 1199px) {
+//   #slider-body {
+//     width: 18rem !important;
+//   }
+// }
+
+// @media only screen and (max-width: 990px) {
+//   #slider-body {
+//     width: 14rem !important;
+//   }
+// }
 
 @media only screen and (max-width: 990px) {
   .fetch-navigation {

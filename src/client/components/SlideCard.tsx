@@ -11,7 +11,7 @@ const SlideCard: React.FC<SlideCardProps> = ({
     <>
       <div className="slide-card mt-4 card ">
         <img src={slideImg} alt="" className="slide-img card-img-top" />
-        <div className="slide-body card-body p-4">
+        <div id="slider-body" className="slide-body card-body p-4">
           <h5 className="slide-title py-2">{slideTitle}</h5>
           <small className="slide-description text-muted">
             {slideDescription}
