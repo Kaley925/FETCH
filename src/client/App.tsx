@@ -40,7 +40,7 @@ const App = () => {
 
   //  Favorites
   const [favorites, setFavorites] = useState([]);
-  const handleFavorites = (cats) => {
+  const handleFavorites = (cats: any) => {
     setFavorites([...favorites, cats]);
     localStorage.setItem("favorites", JSON.stringify(favorites));
     const favoritesParsed = JSON.parse(localStorage.getItem("favorites"));
