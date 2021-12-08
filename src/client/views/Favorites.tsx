@@ -73,7 +73,7 @@ const Favorites: React.FC<FavoritesProps> = ({ favorites }) => {
             </h2>
             <div className="d-flex justify-content-center align-items-center">
               <div className="favorites-row gx-3 gy-3 row d-flex  justify-content-center align-items-center">
-                {favorites.map((favorite) => {
+                {favorites.map((favorite: { name: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal; description: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal; age: string | number | boolean | {} | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactNodeArray | React.ReactPortal; }) => {
                   return (
                     <div className="col-lg-6 col-12 favorite-col">
                       <div className="favorite-card text-center shadow">

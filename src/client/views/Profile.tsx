@@ -28,19 +28,19 @@ const Profile = () => {
               className="rounded-circle"
             />
             <hr />
-            <h3 className="mt-2">Maria Smantha</h3>{" "}
-            <span className="mt-1 clearfix">Starbucks barista</span>
+            <h3 className="mt-2">Maria Samantha</h3>{" "}
+            <span className="mt-1 clearfix">Starbucks - Barista</span>
             <div className="row mt-3 mb-3">
               <div className="col-md-6">
-                <h5>Pets Owned</h5> <span className="num">3</span>
+                <h5>Pets Owned:</h5> <span className="num">3</span>
               </div>
               <div className="col-md-6">
-                <h5>Age</h5> <span className="num">25</span>
+                <h5>Age:</h5> <span className="num">25</span>
               </div>
             </div>
             <p className="mt-4">
-              I am a barista at Starbucks and studying psychology at The
-              University of Alabama
+              I am a barista at Starbucks and I'm studying psychology at The
+              University of Alabama.
             </p>
             <div className="profile mt-5">
               {" "}

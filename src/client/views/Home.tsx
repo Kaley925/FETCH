@@ -14,30 +14,23 @@ import Login from "../components/Login";
 import "slick-carousel/slick/slick.scss";
 import "slick-carousel/slick/slick-theme.scss";
 import { gsap } from "gsap";
-
 const Home = () => {
   //   Imgs arr / slide data
-
   const imgs = [
     {
       img: "https://i.imgur.com/JnFdSLp.png",
     },
-
     {
       img: "https://i.imgur.com/6Iyg5Oq.png",
     },
-
     {
       img: "https://i.imgur.com/F5nsCzY.png",
     },
-
     {
       img: "https://i.imgur.com/ZTTW7TC.png",
     },
   ];
-
   const randomImg = Math.floor(Math.random() * imgs.length);
-
   const slideData = [
     {
       title: "Meghan and Gary",
@@ -47,7 +40,6 @@ const Home = () => {
       picture:
         "https://images.pexels.com/photos/1452717/pexels-photo-1452717.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
     },
-
     {
       title: "Jake and Skipper",
       description:
@@ -56,7 +48,6 @@ const Home = () => {
       picture:
         "https://images.pexels.com/photos/1654486/pexels-photo-1654486.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     },
-
     {
       title: "Alice and Marley",
       description:
@@ -65,7 +56,6 @@ const Home = () => {
       picture:
         "https://images.pexels.com/photos/6001407/pexels-photo-6001407.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
     },
-
     {
       title: "Jamie, Max, and Bailey",
       description:
@@ -75,40 +65,31 @@ const Home = () => {
         "https://images.pexels.com/photos/8944741/pexels-photo-8944741.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     },
   ];
-
   // Ref
   const sliderRef = useRef(null);
   const headerRef = useRef();
-
   // Animations
-
   useEffect(() => {
     gsap.to(headerRef.current, { opacity: 1, delay: 1 });
   }, []);
-
   // States
   const [currentArrow, setCurrentArrow] = useState("right");
-
   const slideRight = () => {
     setCurrentArrow("right");
     sliderRef.current.slickNext();
   };
-
   const slideLeft = () => {
     setCurrentArrow("left");
     sliderRef.current.slickPrev();
   };
-
   // Modal login
   const [showLogin, setShowLogin] = useState(false);
   const handleLoginClose = () => setShowLogin(false);
   const handleLoginShow = () => setShowLogin(true);
-
   // Modal signup
   const [showSignup, setShowSignup] = useState(false);
   const handleSignupClose = () => setShowSignup(false);
   const handleSignupShow = () => setShowSignup(true);
-
   return (
     <>
       <main ref={headerRef} id="main">
@@ -148,7 +129,6 @@ const Home = () => {
           </div>
         </div>
       </main>
-
       <section id="success" className="success-stories">
         <div className="container success-stories-container">
           <h2 className="success-title">Success Stories</h2>
@@ -158,7 +138,6 @@ const Home = () => {
             cum recusandae consequuntur repudiandae ea magni nisi sapiente,
             numquam fugiat ex.
           </p>
-
           <div className="arrows d-flex justify-content-end mt-4 mb-4">
             <BsArrowLeft
               onClick={slideLeft}
@@ -173,7 +152,6 @@ const Home = () => {
               }`}
             />
           </div>
-
           <Slider
             ref={sliderRef}
             slidesToShow={3}
@@ -186,7 +164,6 @@ const Home = () => {
                   slidesToScroll: 2,
                 },
               },
-
               {
                 breakpoint: 577,
                 settings: {
@@ -210,7 +187,6 @@ const Home = () => {
           </Slider>
         </div>
       </section>
-
       <section id="adopt" className="why-adopt p-3">
         <div className="container why-adopt-container d-flex justify-content-between align-items-center">
           <div className="why-adopt-left">
@@ -279,10 +255,8 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       <Footer footerView="#F9ECDC" />
     </>
   );
 };
-
 export default Home;
