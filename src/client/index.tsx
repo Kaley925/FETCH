@@ -4,6 +4,7 @@ import App from "./App";
 import "./scss/app";
 import "./scss/home";
 import "./scss/Cats";
+import "./scss/Dogs";
 import "./scss/signuplogin.scss";
 import "./scss/favorites.scss";
 

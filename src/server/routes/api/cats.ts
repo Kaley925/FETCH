@@ -7,9 +7,11 @@ import * as passport from 'passport';
 
 const router = Router();
 
+
 router.get('/:id?', passport.authenticate('jwt'), async (req, res, next) => {
 
     const catid = Number(req.params.id);
+
 
     if (catid) {
         try {
