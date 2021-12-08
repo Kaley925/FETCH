@@ -237,10 +237,13 @@ const Cats: React.FC<CatsProps> = ({ favorite }) => {
                           onClick={() => favorite(dogs)}
                         >
                           Favorite Me
-                        </button>
-                  
+                          </button>
                 </div>
-
+              </div>
+            ))}
+            </section>
+                  
+                
               </div>
             </div>
 
