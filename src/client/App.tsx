@@ -48,13 +48,13 @@ const App = () => {
     setFavorites(movieFavorites);
   }, []);
 
-  const saveFavoritesToLocalStorage = (faves) => {
+  const saveFavoritesToLocalStorage = (faves: any[]) => {
     localStorage.setItem("favorites", JSON.stringify(faves));
   };
 
   const [favorites, setFavorites] = useState([]);
 
-  const handleFavorites = (cats) => {
+  const handleFavorites = (cats: any) => {
     const savedFavorites = [...favorites, cats];
     setFavorites(savedFavorites);
     saveFavoritesToLocalStorage(savedFavorites);
