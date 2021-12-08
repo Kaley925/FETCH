@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./views/Home";
 import Cats from "./views/Cats";
-import Dogs from "./views/Dogs";
+
 import Profile from "./views/Profile";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
@@ -53,8 +53,18 @@ const App = () => {
   };
 
   const [favorites, setFavorites] = useState([]);
-  const handleFavorites = (cats) => {
-    const savedFavorites = [...favorites, cats];
+
+  const handleFavorites = (pets, img) => {
+    const savedFavorites = [...favorites, pets];
+    setFavorites(savedFavorites);
+    saveFavoritesToLocalStorage(savedFavorites);
+  };
+
+  const handleRemoveFavorites = (fav) => {
+    const savedFavorites = favorites.filter((favorite) => {
+      return favorite.id !== fav.id;
+    });
+
     setFavorites(savedFavorites);
     saveFavoritesToLocalStorage(savedFavorites);
   };
@@ -72,18 +82,22 @@ const App = () => {
         handleLogout={handleLogout}
         isLoggedIn={isLoggedIn}
         bgView="#FBF4EA"
-        favoriteNumber={1}
+        favoriteNumber={favorites.length}
       />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Home />} />
         <Route path="/Cats" element={<Cats favorite={handleFavorites} />} />
-        <Route path="/Dogs" element={<Dogs />} />
         <Route path="/Profile" element={<Profile />} />
         <Route path="/Loading" element={<Loading />} />
         <Route
           path="/Favorites"
-          element={<Favorites favorites={favorites} />}
+          element={
+            <Favorites
+              favorites={favorites}
+              removeFavorite={handleRemoveFavorites}
+            />
+          }
         />
       </Routes>
     </BrowserRouter>
