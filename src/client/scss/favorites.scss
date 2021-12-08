@@ -1,5 +1,5 @@
 .favorites {
-  background-color: #FBE4BC;
+  background-color: #fbe4bc;
   padding: 3rem;
 }
 
@@ -15,5 +15,52 @@
   text-decoration-color: #fead12;
   text-underline-offset: 0.2rem;
 }
+
+
+.carousel-img {
+  height: 30rem !important;
+  object-fit: cover !important;
+}
+
+.jump-to-favorites-btn {
+  background-color: #fead12 !important;
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+.jump-to-favorites-btn:hover {
+  transition: 0.3s ease-in-out;
+
+  background-color: black !important;
+  font-weight: 600 !important;
+}
+
+.jump-link {
+  color: white;
+  text-decoration: none !important;
+}
+
+.jump-link:hover {
+  color: white !important;
+}
+
+.favorite-age-emphasis {
+  color: #fead12;
+  font-weight: 700;
+}
+
+.unfavorite-btn {
+  background-color: #fead12 !important;
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+.unfavorite-btn:hover {
+  transition: 0.3s ease-in-out;
+  color: white !important;
+  background-color: black !important;
+  font-weight: 600 !important;
+}
+
 
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");

@@ -1,5 +1,5 @@
 .top-container {
-  background-color: rgb(255, 255, 255)!important;
+  background-color: white;
   height: 80rem;
 }
 
@@ -9,50 +9,22 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: 70%;
-  
-  
 }
 
-.cat-top-button {
-  
+.dog-top-button {
+  background-color: rgb(250, 187, 50) !important;
   border: none;
   color: white;
   font-size: 20pt;
 }
-.cat-top-button:hover {
+.dog-top-button:hover {
   background-color: black !important;
   color: white !important;
 }
-.first-btn{
-  background-color: #FEAD12 !important;
-  color: white !important;
-  font-weight: 600 !important;
-}
-.first-btn:hover{
-  transition: 0.3s ease-in-out;
-  background-color: black !important;
-  font-weight: 600 !important;
-}
-.second-btn{
-  background-color: none !important;
-  border: 0.1rem solid #FEAD12 !important;
-  font-weight: 600 !important;
-}
-.second-btn:hover{
-  background-color: #FEAD12 !important;
-  color: white !important;
-  font-weight: 600 !important;
-  border: none !important;
-}
-.cat-lower-title {
+.dog-lower-title {
   text-align: center;
 }
-.cat-pic{
-    height:20rem !important;
-    width:auto !important;
-    padding-top: 2rem !important;
-}
-.cat-img {
+.dog-img {
   height: 30rem !important;
   width: auto !important;
 }
@@ -68,32 +40,34 @@
 .girl-img {
   height: 10rem;
 }
+
 .bottom-container {
   background-color: #fae4bb;
 }
 .card {
   margin-right: 20px;
   margin-bottom: 20px;
-  box-shadow: 0 0 20px 7px rgba(0,0,0,0.1)
 }
 .card-body {
   text-align: center;
   background-color: white;
   width: 36rem;
-  height: 30rem !important;
+  height: 30rem;
+  padding-top: 100px !important;
 }
-.cat-favorite-btn {
-  padding: 1rem;
-  background-color:#FEAD12 !important;
-  border:none !important;
+.dog-favorite-btn {
+  padding: 3rem;
 }
-.cat-favorite-btn:hover {
-  color: black !important;
+.dog-favorite-btn:hover {
+  color: black;
 }
 .title {
   font-size: 4rem;
+  // position:relative;
+  // top:100px;
+  // left: 50px;
 }
-.btn-view-cat {
+.btn-view-dog {
   background-color: none;
   border: 0.1rem solid #fead12;
   font-weight: 600;
@@ -101,7 +75,7 @@
   color: #fead12;
   width: 18rem;
 }
-.btn-view-cat:hover {
+.btn-view-dog:hover {
   transition: 0.3s ease-in-out;
   background-color: black;
   font-weight: 600;

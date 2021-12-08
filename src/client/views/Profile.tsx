@@ -43,6 +43,7 @@ const Profile = () => {
                 <div className="profile mt-5"> </div>
               </div>
             </div>
+
           </div>
         </div>
       </main>

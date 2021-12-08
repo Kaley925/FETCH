@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./views/Home";
 import Cats from "./views/Cats";
-import Dogs from "./views/Dogs";
+
 import Profile from "./views/Profile";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
@@ -43,23 +43,35 @@ const App = () => {
 
   //  Favorites
 
-  useEffect(() => {
-    const movieFavorites = JSON.parse(localStorage.getItem("favorites"));
-    setFavorites(movieFavorites);
-  }, []);
 
-  const saveFavoritesToLocalStorage = (faves: any[]) => {
-    localStorage.setItem("favorites", JSON.stringify(faves));
-  };
+
+
+  // useEffect(() => {
+  //   const movieFavorites = JSON.parse(localStorage.getItem("favorites"));
+  //   setFavorites(movieFavorites);
+  // }, []);
+
+  // const saveFavoritesToLocalStorage = (faves) => {
+  //   localStorage.setItem("favorites", JSON.stringify(faves));
+  // };
 
   const [favorites, setFavorites] = useState([]);
 
-  const handleFavorites = (cats: any) => {
-    const savedFavorites = [...favorites, cats];
+  const handleFavorites = (pets, img) => {
+    const savedFavorites = [...favorites, pets];
     setFavorites(savedFavorites);
-    saveFavoritesToLocalStorage(savedFavorites);
-
+    // saveFavoritesToLocalStorage(savedFavorites);
   };
+
+  const handleRemoveFavorites = (fav) => {
+    const savedFavorites = favorites.filter((favorite) => {
+      return favorite.id !== fav.id;
+    });
+
+    setFavorites(savedFavorites);
+    // saveFavoritesToLocalStorage(savedFavorites);
+  };
+
 
   console.log(favorites);
 
@@ -80,12 +92,21 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Home />} />
         <Route path="/Cats" element={<Cats favorite={handleFavorites} />} />
-        <Route path="/Dogs" element={<Dogs />} />
+
         <Route path="/Profile" element={<Profile />} />
         <Route path="/Loading" element={<Loading />} />
         <Route
           path="/Favorites"
-          element={<Favorites favorites={favorites} />}
+
+          
+
+          element={
+            <Favorites
+              favorites={favorites}
+              removeFavorite={handleRemoveFavorites}
+            />
+          }
+
         />
       </Routes>
     </BrowserRouter>
