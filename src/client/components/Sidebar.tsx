@@ -1,35 +1,37 @@
 import React, { useState, useEffect, useRef } from "react";
 import * as IoIcons from "react-icons/Io";
 import * as AiIcons from "react-icons/ai";
+import Nav from "react-bootstrap/Nav";
+import EditModal from "./EditModal";
+import "../scss/sidebar"
 import { Link } from "react-router-dom";
-import "./../../scss/sidebar";
-import { IconContext } from "react-icons";
-import EditModal from "../components/EditModal";
+import { IconContext } from "react-icons"; 
+import Button from "react-bootstrap/Button";
 
-function Sidebar() {
+
+const Sidebar: React.FC<SidebarProps> =({
+   modalView,
+   handleModalClose,
+   handleModalChange,
+}) => {
+
   const [sidebar, setSidebar] = useState(false);
-  //   const [openModal, setOpenModal] = useState(false)
-  //   const [closeModal, setCloseModal] = useState(false)
   const showSidebar = () => setSidebar(!sidebar);
-
-  //   const handleOpenModal = () => {
-  //     setOpenModal(true)
-  //   }
-
-  //   const handleCloseModal = () => {
-  // setCloseModal(true)
-  //   }
+  
+  const [openModal, setOpenModal] = useState(false);
+  const handleCloseModal = () => setOpenModal(false);
+  const handleOpenModal = () => setOpenModal(true);
 
   return (
     <>
-      {/* <EditModal modalView={openModal} handleModalClose={handleCloseModal} /> */}
+      <EditModal modalView={openModal} handleModalClose={handleCloseModal} handleModalChange={undefined} />
       <IconContext.Provider value={{ color: "#fead12" }}>
         <div className="sidebar">
           <Link to="#" className="menu-paw">
             <IoIcons.IoMdPaw onClick={showSidebar} />
           </Link>
         </div>
-        <div className={sidebar ? "menu active" : "menu"}>
+        <div className={sidebar ? "menu active" : "menu" }>
           <ul className="menu-items">
             <li className="menu-toggle">
               <Link to="#" className="menu-bars">
@@ -60,11 +62,21 @@ function Sidebar() {
                 <span className="text-span">Change Password</span>
               </Link>
             </li>
+            <Button onClick={() => handleModalChange()} className="sidebar-text">
+                Signup
+              </Button>
           </ul>
         </div>
       </IconContext.Provider>
     </>
   );
+};
+
+interface SidebarProps {
+  modalView: any,
+  handleModalClose: any,
+  handleModalChange: any,
 }
 
 export default Sidebar;
+

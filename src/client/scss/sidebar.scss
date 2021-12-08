@@ -5,7 +5,7 @@
     padding-top: 22px;
     position: absolute;
     left: 1;
-    top: 106px;
+    top: 160px;
 }
 
 .menu-paw {
@@ -19,13 +19,13 @@
     height: 615px;
     width: 250px;
     position: absolute;
-    top: 106px;
+    top: 160px;
     left: -100%;
     transition: 850ms;
 }
 
 .menu.active {
-    top: 106px;
+    top: 160px;
     left: 0;
     transition: 350ms;
 }
