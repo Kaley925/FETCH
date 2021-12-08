@@ -199,6 +199,7 @@ const Home = () => {
               need it.
             </p>
           </div>
+
           <div className="why-adopt-right">
             <img
               src="https://i.imgur.com/uMeQb7l.png"
@@ -208,6 +209,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+
       <section id="sponsors" className="our-sponsors">
         <div className="container our-sponsors-container">
           <div className="our-sponsors-top">
@@ -226,6 +228,7 @@ const Home = () => {
                 className="sponsor img-fluid"
               />
             </div>
+
             <div className="col-lg-3 col-6">
               <img
                 src="https://i.imgur.com/jAGRP8t.png"
@@ -233,6 +236,7 @@ const Home = () => {
                 className="sponsor img-fluid"
               />
             </div>
+
             <div className="col-lg-3 col-6">
               <img
                 src="https://images.squarespace-cdn.com/content/v1/59233110197aea9830d1d4e2/1634244336706-KUD7S3C1AKEJGU3SLP0B/4c_Horizontal.png?format=750w"
@@ -240,6 +244,7 @@ const Home = () => {
                 className="sponsor img-fluid"
               />
             </div>
+
             <div className="col-lg-3 col-6">
               <img
                 src="https://i.imgur.com/1ViJ7ET.png"
