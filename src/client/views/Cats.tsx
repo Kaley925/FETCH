@@ -21,14 +21,12 @@ const Cats: React.FC<CatsProps> = ({ favorite }) => {
     console.log(allCats);
     setCats(allCats);
   };
- //dog stuff
+  //dog stuff
   const [dogs, setdogs] = useState([]);
 
   useEffect(() => {
     getdogData();
   }, []);
-
- 
 
   const getdogData = async () => {
     const res = await fetch("/api/dogs", {
@@ -55,9 +53,9 @@ const Cats: React.FC<CatsProps> = ({ favorite }) => {
   // ];
 
   // const dogarr = [
-  //   { name: "Darla", color: 'Brown', age: 'a Puppy', image:'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53811087/1/?bust=1638826905&width=720', description:"Darla is a shepherd and labrador Retriever mix looking for a loving home this holiday season"},    
+  //   { name: "Darla", color: 'Brown', age: 'a Puppy', image:'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53811087/1/?bust=1638826905&width=720', description:"Darla is a shepherd and labrador Retriever mix looking for a loving home this holiday season"},
   //   { name: "Janice", color:'Brown', age:'a Young dog', image:'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53784063/1/?bust=1638658614&width=720', description:"Janice is an energetic young dog who loves to run around and play fetch"},
-    
+
   // ]
   // //end of emergency data part 1 of 2
 
@@ -75,10 +73,12 @@ const Cats: React.FC<CatsProps> = ({ favorite }) => {
   ];
 
   const picarraydogs = [
-    'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53823354/1/?bust=1638916954&width=720',
-    'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53823353/1/?bust=1638916956&width=720',
-    'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52376512/4/?bust=1626474994&width=720',
-  ]
+    "https://i.imgur.com/vLybVtA.jpg",
+    "https://i.imgur.com/68o6gfJ.jpg",
+    "https://i.imgur.com/h3WnW86.jpg",
+    "https://i.imgur.com/aixg8VQ.jpg",
+    "https://i.imgur.com/F6EPCny.jpg",
+  ];
 
   return (
     <>
@@ -88,9 +88,9 @@ const Cats: React.FC<CatsProps> = ({ favorite }) => {
             <div className="text-area">
               <h1 className="mt-5 title">Find the perfect pet!</h1>
               <h4 className="top-paragraph">
-                we have many cats and dogs to choose from, all in desperate need of a
-                home. Adopt a pet today to not only save a life, but to also
-                gain a best friend in the process!
+                we have many cats and dogs to choose from, all in desperate need
+                of a home. Adopt a pet today to not only save a life, but to
+                also gain a best friend in the process!
               </h4>
               <a className="mt-4 cat-top-button btn w-50 mb-3 p-2 first-btn" href='#kitty'>
                 See Our Cats Below{" "}
@@ -183,30 +183,35 @@ const Cats: React.FC<CatsProps> = ({ favorite }) => {
           <section className="row justify-content-center ">
             <h1 className="row justify-content-center mt-5" id='kitty'>Find Cats</h1>
             {cats.map((cats, i) => (
-              
               <div className="card" style={{ width: "36rem" }}>
-              
-                <img className="card-img-top cat-pic" src={picarray[i]} alt="cat images"/>
-                  
+                <img
+                  className="card-img-top cat-pic"
+                  src={picarray[i]}
+                  alt="cat images"
+                />
+
                 <div className="card-body" key={`cat-name-${cats.id}`}>
                   <h4 className="card-title">My Name is {cats.name}</h4>
                   <h5 className="card-text">Breed:{cats.breed}</h5>
                   <h5 className="card-text">Description:{cats.description}</h5>
+
                   <h5 className="card-text">Gender {cats.gender}</h5>
                       <h5 className="card-text"> age: {cats.age}</h5>
                   <h5 className="card-text">Location {cats.shelter}</h5> 
+
                   <h5 className="card-text">I'm {dis()} miles away from you</h5>
                   <button
                     type="button"
                     className="btn btn-dark cat-favorite-btn"
                     onClick={() => favorite(cats)}
-                    >
+                  >
                     Favorite Me
                   </button>
-                 
                 </div>
               </div>
             ))}
+
+
 
 <div className="bottom-container" id="scroll-bot">
         <div className="dog-info container">
@@ -227,18 +232,17 @@ const Cats: React.FC<CatsProps> = ({ favorite }) => {
                   <h5 className="card-text">Location {dogs.shelter}</h5> 
                   <h5 className="card-text">I'm {dis()} miles away from you</h5>
                   <button
-                    type="button"
-                    className="btn btn-dark dog-favorite-btn"
-                  >
-                    Favorite Me
-                  </button>
+                          type="button"
+                          className="btn btn-dark dog-favorite-btn"
+                          onClick={() => favorite(dogs)}
+                        >
+                          Favorite Me
+                        </button>
                   
                 </div>
+
               </div>
-            ))}
-          </section>
-        </div>
-      </div>
+            </div>
 
             {/* EMERGENCY SECTION  part 2 of 2*/}
             {/* {catarr.map((cats) => (
@@ -280,7 +284,6 @@ const Cats: React.FC<CatsProps> = ({ favorite }) => {
             ))} */}
 
             {/* end of emergency section  part 2 of 2 */}
-
           </section>
         </div>
       </div>

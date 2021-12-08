@@ -1,6 +1,7 @@
-import { Query } from ".."
+import { Query } from "..";
 
-const all = async () => Query(
+const all = async () =>
+  Query(
     `SELECT
         dogs.id,
         dogs.name,
@@ -10,9 +11,11 @@ const all = async () => Query(
         dogs.distance,
         dogs.shelter
     FROM dogs
-    ORDER BY created_at DESC`);
+    ORDER BY created_at DESC`
+  );
 
-const one = async (dogid: number) => Query(
+const one = async (dogid: number) =>
+  Query(
     `SELECT
         dogs.id,
         dogs.name,
@@ -22,9 +25,11 @@ const one = async (dogid: number) => Query(
         dogs.distance,
         dogs.shelter
     FROM dogs
-    WHERE dogs.id = ?`, [dogid])
+    WHERE dogs.id = ?`,
+    [dogid]
+  );
 
 export default {
-    all,
-    one
-}
+  all,
+  one,
+};

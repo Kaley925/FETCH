@@ -1,10 +1,12 @@
 // Navbar
+
 .fetch-logo {
   height: 2.5rem !important;
-  background-color: #FEAD12;
+  background-color: #fead12;
   padding: 0.3rem 0.4rem;
   border-radius: 50%;
 }
+
 // Main content / header
 #main {
   background-image: url("https://i.imgur.com/n8hAGf5.png");
@@ -13,19 +15,24 @@
   background-size: cover;
   background-position-y: -5rem;
   opacity: 0;
+
   //   overflow-y: hidden;
 }
+
 .main-img {
   height: 45rem !important;
   object-fit: contain;
 }
+
 .main-title {
   font-size: 4rem;
 }
+
 .main-description {
   line-height: 1.7;
   width: 87%;
 }
+
 .login-btn {
   background: none !important;
   border: 0.1rem solid black !important;
@@ -33,6 +40,7 @@
   color: black !important;
   font-weight: 600 !important;
 }
+
 .signup-btn {
   background: black !important;
   padding: 0.5rem 2rem !important;
@@ -40,6 +48,7 @@
   color: white !important;
   font-weight: 600 !important;
 }
+
 .signup-btn:hover {
   transition: 0.3s ease-in-out;
   background: none !important;
@@ -48,6 +57,7 @@
   color: black !important;
   font-weight: 600 !important;
 }
+
 .login-btn:hover {
   transition: 0.3s ease-in-out;
   background: black !important;
@@ -56,87 +66,111 @@
   color: white !important;
   font-weight: 600 !important;
 }
+
 .btn-dog-directory {
-  background-color: #FEAD12 !important;
+  background-color: #fead12 !important;
   color: white !important;
   font-weight: 600 !important;
 }
+
 .btn-dog-directory:hover {
   transition: 0.3s ease-in-out;
+
   background-color: black !important;
   font-weight: 600 !important;
 }
+
 .btn-cat-directory {
   background-color: none !important;
-  border: 0.1rem solid #FEAD12 !important;
+  border: 0.1rem solid #fead12 !important;
   font-weight: 600 !important;
 }
+
 .btn-cat-directory:hover {
-  background-color: #FEAD12 !important;
+  background-color: #fead12 !important;
   color: white !important;
   font-weight: 600 !important;
   border: none !important;
 }
+
 .btn-arrow {
   margin-left: 0.4rem !important;
 }
+
 .dogs-links {
   text-decoration: none !important;
   color: white !important;
 }
+
 .cats-links {
   text-decoration: none !important;
   color: black !important;
 }
+
 .favorite-tracker {
   margin-left: 2rem;
 }
+
 .css-11pbyhm-MuiSvgIcon-root {
   color: black !important;
 }
+
 .favorite-pets {
   color: black;
 }
+
 .css-to4x1n-MuiBadge-badge {
-  background-color: #FEAD12 !important;
+  background-color: #fead12 !important;
 }
+
 // Slider
+
 .success-stories {
   margin-top: 5rem;
 }
+
 .success-title {
   font-size: 2.5rem;
 }
+
 .slide-card {
   width: 25rem;
   height: 15rem;
 }
+
 .slider-left {
   font-size: 2rem;
   cursor: pointer;
 }
+
 .slider-right {
   font-size: 2rem;
   cursor: pointer;
 }
+
 .active-arrow {
-  background-color: #FEAD12;
+  background-color: #fead12;
   color: white;
   border-radius: 0.5rem;
 }
+
 .slide-card {
   height: 30rem;
   width: 97%;
 }
+
 .slide-title {
   font-weight: 700;
 }
+
 .slide-img {
   object-fit: cover;
 }
+
 .slide-description {
   line-height: 1.7;
 }
+
 .slide-body {
   background: white;
   border-bottom-left-radius: 0.5rem;
@@ -148,64 +182,80 @@
 }
 
 .years {
-  background: #FEAD12 !important;
+  background: #fead12 !important;
 }
+
 .slick-slide {
   height: auto;
 }
+
 .slick-track {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: stretch;
 }
+
 // Why adopt
+
 .why-adopt {
   margin-top: 5rem;
-  background-color: #FCDDA3;
+  background-color: #fcdda3;
   background-image: url("https://i.imgur.com/5QbIzuq.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
+
 .why-adopt-left {
   margin-top: 2rem;
 }
+
 .why-adopt-title {
   margin-bottom: 1rem;
   font-size: 2.5rem;
 }
+
 .why-adopt-description {
   line-height: 1.7;
   width: 75%;
 }
+
 // Sponsors
+
 .our-sponsors {
   margin-top: 5rem;
 }
+
 .our-sponsors-title {
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
+
 .footer {
   margin-top: 5rem;
 }
+
 // Responsive styles
+
 // @media only screen and (max-width: 1399px) {
 //   #slider-body {
 //     width: 22rem !important;
 //   }
 // }
+
 // @media only screen and (max-width: 1199px) {
 //   #slider-body {
 //     width: 18rem !important;
 //   }
 // }
+
 // @media only screen and (max-width: 990px) {
 //   #slider-body {
 //     width: 14rem !important;
 //   }
 // }
+
 @media only screen and (max-width: 990px) {
   .fetch-navigation {
     display: flex;
@@ -213,11 +263,13 @@
     justify-content: center !important;
     margin: auto !important;
   }
+
   .nav-btns .login-btn {
     margin-bottom: 1rem;
     margin-top: 1rem;
   }
 }
+
 @media only screen and (max-width: 960px) {
   #main .main-container {
     padding-top: 3.5rem;
@@ -227,39 +279,49 @@
     justify-content: center !important;
     align-items: center;
   }
+
   #main .main-img {
     display: none !important;
   }
+
   #main .main-title {
     font-size: 3rem;
   }
+
   #main .main-description {
     line-height: 1.7;
     width: 100%;
   }
+
   #main .main-btn-area {
     margin: auto !important;
     padding-bottom: 2rem;
   }
+
   #main .main-btn-area .btn-dog-directory {
     margin: auto !important;
     margin-bottom: 1rem !important;
   }
+
   #main .main-btn-area .btn-cat-directory {
     margin: auto !important;
     margin-bottom: 1rem !important;
   }
+
   #main .main-right .main-img {
     height: 12rem !important;
     padding-bottom: 3rem !important;
   }
+
   #main .btn-dog-directory {
     width: 100% !important;
   }
+
   #main .btn-cat-directory {
     width: 100% !important;
   }
 }
+
 @media only screen and (max-width: 890px) {
   #main {
     height: 100vh !important;
@@ -267,114 +329,143 @@
   #main .main-right .main-img {
     display: none !important;
   }
+
   .success-stories {
     margin-top: 1rem;
   }
+
   .main-form-area {
     margin: auto !important;
     justify-content: center !important;
     align-items: center !important;
   }
 }
+
 @media only screen and (max-width: 585px) {
   html,
   body {
     overflow-x: hidden !important;
   }
+
   #main .main-title {
     font-size: 2.5rem;
   }
+
   #main .main-description {
     font-size: 0.9rem;
   }
+
   #success .success-title {
     font-size: 1.8rem;
     text-align: center;
   }
+
   #success .success-description {
     font-size: 0.9rem;
     text-align: center;
   }
+
   #success .arrows {
     justify-content: center !important;
   }
+
   #adopt .why-adopt-container {
     flex-wrap: wrap !important;
     margin: auto !important;
     text-align: center !important;
   }
+
   .why-adopt-title {
     font-size: 1.8rem;
   }
+
   .why-adopt-description {
     width: 100% !important;
     font-size: 0.9rem;
   }
+
   .why-adopt-right {
     margin: auto !important;
   }
+
   .why-adopt-img {
     height: 13rem !important;
     margin: auto !important;
   }
+
   #sponsors .our-sponsors-title {
     font-size: 1.8rem;
     text-align: center;
   }
+
   #sponsors .our-sponsors-description {
     width: 100% !important;
     font-size: 0.9rem;
     text-align: center;
   }
 }
+
 @media only screen and (max-width: 375px) {
   #main {
     height: 100vh !important;
   }
+
   #main .main-title {
     font-size: 1.9rem;
   }
+
   #main .main-description {
     font-size: 0.7rem;
   }
+
   #success .success-title {
     font-size: 1.6rem;
     text-align: center;
   }
+
   #success .success-description {
     font-size: 0.7rem;
     text-align: center;
   }
+
   #success .arrows {
     justify-content: center !important;
   }
+
   #adopt .why-adopt-container {
     flex-wrap: wrap !important;
     margin: auto !important;
     text-align: center !important;
   }
+
   .why-adopt-title {
     font-size: 1.6rem;
   }
+
   .why-adopt-description {
     width: 100% !important;
     font-size: 0.7rem;
   }
+
   .why-adopt-right {
     margin: auto !important;
   }
+
   .why-adopt-img {
     height: 12rem !important;
     margin: auto !important;
   }
+
   #sponsors .our-sponsors-title {
     font-size: 1.6rem;
     text-align: center;
   }
+
   #sponsors .our-sponsors-description {
     width: 100% !important;
     font-size: 0.7rem;
     text-align: center;
   }
 }
+
 @import "../../../node_modules/bootstrap/scss/bootstrap.scss";

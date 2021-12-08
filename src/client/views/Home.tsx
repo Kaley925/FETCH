@@ -105,7 +105,7 @@ const Home = () => {
             <div className="main-form-area d-flex flex-column mb-5">
               <div className="main-btn-area d-flex flex-column mb-5">
                 <button className="btn btn-dog-directory w-50 mb-3 p-2">
-                  <Link className="dogs-links" to={"/Dogs"}>
+                  <Link className="dogs-links" to={"/Cats"}>
                     Find Dogs{" "}
                     <BsFillArrowRightCircleFill className="btn-arrow" />
                   </Link>

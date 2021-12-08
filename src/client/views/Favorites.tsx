@@ -2,12 +2,9 @@ import React, { useState, useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { Carousel } from "react-bootstrap";
+import { BsFillArrowDownCircleFill } from "react-icons/bs";
 
-const Favorites: React.FC<FavoritesProps> = ({ favorites }) => {
-  const dis = () => {
-    return Math.floor(Math.random() * 50) + 1;
-  };
-
+const Favorites: React.FC<FavoritesProps> = ({ favorites, removeFavorite }) => {
   if (favorites === null) {
     return (
       <div className="none text-center mt-5">
@@ -23,78 +20,87 @@ const Favorites: React.FC<FavoritesProps> = ({ favorites }) => {
             Here you will find a list of your favorited pets. To unfavorite a
             pet, simply click the "unfavorite" button!
           </p>
-          <Carousel fade>
+          <div className="favorites-btn-area d-flex flex-column justify-content-center align-items-center">
+            <button className="jump-to-favorites-btn d-flex align-items-center justify-content-center p-3 btn mb-5">
+              <a href="#favorites" className="jump-link">
+                {" "}
+                Jump to favorites{" "}
+                <BsFillArrowDownCircleFill className="jump-link-icon mx-2" />
+              </a>
+            </button>
+          </div>
+          <Carousel interval={2000} fade>
             <Carousel.Item>
               <img
-                className="d-block w-100"
+                className="carousel-img d-block w-100"
                 src="https://images.pexels.com/photos/731022/pexels-photo-731022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                 alt="First slide"
               />
-              <Carousel.Caption>
-                <h3>First slide label</h3>
-                <p>
-                  Nulla vitae elit libero, a pharetra augue mollis interdum.
-                </p>
-              </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
               <img
-                className="d-block w-100"
+                className="carousel-img d-block w-100"
                 src="https://images.pexels.com/photos/2558605/pexels-photo-2558605.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                 alt="Second slide"
               />
-
-              <Carousel.Caption>
-                <h3>Second slide label</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
               <img
-                className="d-block w-100"
+                className=" carousel-img d-block w-100"
                 src="https://images.pexels.com/photos/46024/pexels-photo-46024.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                 alt="Third slide"
               />
-
-              <Carousel.Caption>
-                <h3>Third slide label</h3>
-                <p>
-                  Praesent commodo cursus magna, vel scelerisque nisl
-                  consectetur.
-                </p>
-              </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
         </div>
-        <div className="favorites">
+        <div id="favorites" className="favorites">
           <div className="container favorites-container">
             <h2 className="saved-pets-title text-center mt-3 mb-5">
               Saved Pets ❤️
             </h2>
             <div className="d-flex justify-content-center align-items-center">
               <div className="favorites-row gx-3 gy-3 row d-flex  justify-content-center align-items-center">
-                {favorites.map((favorite: { name: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal; description: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal; age: string | number | boolean | {} | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactNodeArray | React.ReactPortal; }) => {
+                {favorites.map((favorite) => {
                   return (
-                    <div className="col-lg-6 col-12 favorite-col">
+                    <div
+                      className={
+                        favorites.length === 1
+                          ? "col-lg-12 col-12 favorite-col"
+                          : "col-lg-6 col-12 favorite-col"
+                      }
+                    >
                       <div className="favorite-card text-center shadow">
-                        <div className=" d-flex flex-column justify-content-center align-items-center favorite-card favorite-body">
-                          <h5 className="favorite-name">
+                        <div className=" d-flex flex-column justify-content-center align-items-center favorite-card favorite-body p-4">
+                          <h3 className="favorite-name">
                             My Name is{" "}
                             <span className="underline-title">
                               {favorite.name}
                             </span>
-                          </h5>
-                          <p className=" favorite-description w-75">
-                            {favorite.description}
+                          </h3>
+                          <p className=" favorite-description mt-4 mb-3 w-75">
+                            <h6 className="breed-emphasis">Breed:</h6>{" "}
+                            {favorite.breed}
                           </p>
-                          <small className="favorite-age">
-                            I am an{" "}
-                            <span className="age">{favorite.age} cat</span>
+                          <small className="favorite-age mb-4">
+                            I am a{" "}
+                            <span className="favorite-age-emphasis">
+                              {favorite.age}
+                            </span>
                           </small>
                           <p className="text-muted favorite-distance">
-                            Currently {dis()} miles away
+                            Currently {favorite.distance} miles away
                           </p>
-                          <button className="unfavorite-btn btn">
+                          <hr className="w-100" />
+                          <div className="shelter-details mt-4">
+                            <div className="shelter-title mb-4">
+                              <h6 className="shelter-emphasis">Shelter:</h6>{" "}
+                              {favorite.shelter}
+                            </div>
+                          </div>
+                          <button
+                            onClick={() => removeFavorite(favorite)}
+                            className="unfavorite-btn btn"
+                          >
                             Unfavorite
                           </button>
                         </div>
@@ -113,6 +119,7 @@ const Favorites: React.FC<FavoritesProps> = ({ favorites }) => {
 
 interface FavoritesProps {
   favorites: any;
+  removeFavorite: any;
 }
 
 export default Favorites;
