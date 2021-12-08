@@ -62,17 +62,17 @@ const Cats: React.FC<CatsProps> = ({ favorite }) => {
   // //end of emergency data part 1 of 2
 
   const picarray = [
-    'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53722615/1/?bust=1638239028&width=720',
-    'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53722623/1/?bust=1638239116&width=720',
-    'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53722627/1/?bust=1638239179&width=720',
-    'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53780204/1/?bust=1638634529&width=720',
-    'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53780215/1/?bust=1638634700&width=720',
-    'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53780238/1/?bust=1638634861&width=720',
-    'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53600942/1/?bust=1637250246&width=720',
-    'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53601240/1/?bust=1637251749&width=720',
-    'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53601988/2/?bust=1637343523&width=720',
-    'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53620211/1/?bust=1637347587&width=720',
-  ]
+    "https://i.imgur.com/69ngm9z.jpg",
+    "https://i.imgur.com/iwuWEe5.jpg",
+    "https://i.imgur.com/IxufMPR.jpg",
+    "https://i.imgur.com/68orjAZ.jpg",
+    "https://i.imgur.com/LQ8xrQy.jpg",
+    "https://i.imgur.com/8VwtWpR.jpg",
+    "https://i.imgur.com/m3sxvgi.jpg",
+    "https://i.imgur.com/NtUaHDt.jpg",
+    "https://i.imgur.com/HezddLE.jpg",
+    "https://i.imgur.com/66SkOMF.jpg",
+  ];
 
   const picarraydogs = [
     'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53823354/1/?bust=1638916954&width=720',
@@ -92,7 +92,7 @@ const Cats: React.FC<CatsProps> = ({ favorite }) => {
                 home. Adopt a pet today to not only save a life, but to also
                 gain a best friend in the process!
               </h4>
-              <button className="mt-4 cat-top-button btn">
+              <a className="mt-4 cat-top-button btn w-50 mb-3 p-2 first-btn" href='#kitty'>
                 See Our Cats Below{" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -104,8 +104,9 @@ const Cats: React.FC<CatsProps> = ({ favorite }) => {
                 >
                   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z" />
                 </svg>
-              </button>
-              <button className="mt-4 cat-top-button btn">
+              </a>
+              <br/>
+              <a className="mt-4 cat-top-button second-btn btn w-50 p-2" href="#doggie">
                 See Our Dogs Below{" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -117,7 +118,7 @@ const Cats: React.FC<CatsProps> = ({ favorite }) => {
                 >
                   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z" />
                 </svg>
-              </button>
+              </a>
             </div>
             <div className="cat-img">
               <img
@@ -131,7 +132,7 @@ const Cats: React.FC<CatsProps> = ({ favorite }) => {
 
         <div className="why-adopt-section">
           <div className="container why-adopt-container">
-            <h1 className="cat-lower-title">why adopt a furry friend?</h1>
+            <h1 className="cat-lower-title">Why adopt a furry friend?</h1>
 
             <div className="d-flex justify-content-evenly align-items-center">
               <div className="row d-flex justify-content-center align-items-center">
@@ -180,7 +181,7 @@ const Cats: React.FC<CatsProps> = ({ favorite }) => {
       <div className="bottom-container">
         <div className="cat-info container">
           <section className="row justify-content-center ">
-            <h1 className="row justify-content-center mt-5">Find Cats</h1>
+            <h1 className="row justify-content-center mt-5" id='kitty'>Find Cats</h1>
             {cats.map((cats, i) => (
               
               <div className="card" style={{ width: "36rem" }}>
@@ -189,13 +190,11 @@ const Cats: React.FC<CatsProps> = ({ favorite }) => {
                   
                 <div className="card-body" key={`cat-name-${cats.id}`}>
                   <h4 className="card-title">My Name is {cats.name}</h4>
+                  <h5 className="card-text">Breed:{cats.breed}</h5>
                   <h5 className="card-text">Description:{cats.description}</h5>
-                  {cats.age == "adult" ? (
-                    <h5 className="card-text"> I'm an {cats.age} cat</h5>
-                    ) : (
-                      <h5 className="card-text"> I'm a {cats.age} cat</h5>
-                  )}
-
+                  <h5 className="card-text">Gender {cats.gender}</h5>
+                      <h5 className="card-text"> age: {cats.age}</h5>
+                  <h5 className="card-text">Location {cats.shelter}</h5> 
                   <h5 className="card-text">I'm {dis()} miles away from you</h5>
                   <button
                     type="button"
@@ -212,22 +211,20 @@ const Cats: React.FC<CatsProps> = ({ favorite }) => {
 <div className="bottom-container" id="scroll-bot">
         <div className="dog-info container">
           <section className="row justify-content-center ">
-            <h1 className="row justify-content-center mt-5">Find dogs</h1>
+            <h1 className="row justify-content-center mt-5" id='doggie'>Find dogs</h1>
             {dogs.map((dogs, i) => (
               <div className="card" style={{ width: "36rem" }}>
 
-                <img className="card-img-top cat-pic" src={picarraydogs[i]} alt="cat images"/>
+                <img className="card-img-top cat-pic" src={picarraydogs[i]} alt="dog images"/>
 
                 <div className="card-body" key={`dog-name-${dogs.id}`}>
                   {/* <img src={dogs.photos} className="card-img-top"/> */}
                   <h4 className="card-title">My Name is {dogs.name}</h4>
+                  <h5 className="card-text">Breed:{dogs.breed}</h5>
                   <h5 className="card-text">Description:{dogs.description}</h5>
-                  {dogs.age == "adult" ? (
-                    <h5 className="card-text"> I'm an {dogs.age} dog</h5>
-                  ) : (
-                    <h5 className="card-text"> I'm a {dogs.age} dog</h5>
-                  )}
-
+                  <h5 className="card-text">Gender {dogs.gender}</h5>
+                      <h5 className="card-text"> age: {dogs.age}</h5>
+                  <h5 className="card-text">Location {dogs.shelter}</h5> 
                   <h5 className="card-text">I'm {dis()} miles away from you</h5>
                   <button
                     type="button"
