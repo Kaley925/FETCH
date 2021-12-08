@@ -13,12 +13,12 @@ export const Query = <T = any>(query: string, values?: any) => {
     })
 }
 
-import Pets from './queries/pets';
+import Dogs from './queries/dogs';
+import Cats from './queries/cats';
 import Users from './queries/users';
-import Favorites from './queries/favorites';
 
 export default {
-    Pets,
+    Dogs,
+    Cats,
     Users,
-    Favorites
 }
