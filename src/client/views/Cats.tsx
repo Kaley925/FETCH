@@ -183,7 +183,7 @@ const Cats: React.FC<CatsProps> = ({ favorite }) => {
           <section className="row justify-content-center ">
             <h1 className="row justify-content-center mt-5" id='kitty'>Find Cats</h1>
             {cats.map((cats, i) => (
-              <div className="card" style={{ width: "36rem" }}>
+              <div className="card box" style={{ width: "36rem" }}>
                 <img
                   className="card-img-top cat-pic"
                   src={picarray[i]}
@@ -191,15 +191,12 @@ const Cats: React.FC<CatsProps> = ({ favorite }) => {
                 />
 
                 <div className="card-body" key={`cat-name-${cats.id}`}>
-                  <h4 className="card-title">My Name is {cats.name}</h4>
-                  <h5 className="card-text">Breed:{cats.breed}</h5>
-                  <h5 className="card-text">Description:{cats.description}</h5>
-
-                  <h5 className="card-text">Gender {cats.gender}</h5>
-                      <h5 className="card-text"> age: {cats.age}</h5>
-                  <h5 className="card-text">Location {cats.shelter}</h5> 
-
-                  <h5 className="card-text">I'm {dis()} miles away from you</h5>
+                  <h4 className="card-title">My Name is {cats.name}!</h4>
+                  <h5 className="card-text">Breed: {cats.breed}</h5>
+                  <h5 className="card-text">Gender: {cats.gender}</h5>
+                      <h5 className="card-text">Age: {cats.age}</h5>
+                  <h5 className="card-text">Location: {cats.shelter}</h5> 
+                  <h5 className="card-text">I'm {cats.distance} miles away from you.</h5>
                   <button
                     type="button"
                     className="btn btn-dark cat-favorite-btn"
@@ -216,21 +213,20 @@ const Cats: React.FC<CatsProps> = ({ favorite }) => {
 <div className="bottom-container" id="scroll-bot">
         <div className="dog-info container">
           <section className="row justify-content-center ">
-            <h1 className="row justify-content-center mt-5" id='doggie'>Find dogs</h1>
+            <h1 className="row justify-content-center mt-5" id='doggie'>Find Dogs</h1>
             {dogs.map((dogs, i) => (
-              <div className="card" style={{ width: "36rem" }}>
+              <div className="card box" style={{ width: "36rem" }}>
 
                 <img className="card-img-top cat-pic" src={picarraydogs[i]} alt="dog images"/>
 
                 <div className="card-body" key={`dog-name-${dogs.id}`}>
                   {/* <img src={dogs.photos} className="card-img-top"/> */}
-                  <h4 className="card-title">My Name is {dogs.name}</h4>
-                  <h5 className="card-text">Breed:{dogs.breed}</h5>
-                  <h5 className="card-text">Description:{dogs.description}</h5>
-                  <h5 className="card-text">Gender {dogs.gender}</h5>
-                      <h5 className="card-text"> age: {dogs.age}</h5>
-                  <h5 className="card-text">Location {dogs.shelter}</h5> 
-                  <h5 className="card-text">I'm {dis()} miles away from you</h5>
+                  <h4 className="card-title">My Name is {dogs.name}!</h4>
+                  <h5 className="card-text">Breed: {dogs.breed}</h5>
+                  <h5 className="card-text">Gender: {dogs.gender}</h5>
+                      <h5 className="card-text">Age: {dogs.age}</h5>
+                  <h5 className="card-text">Location: {dogs.shelter}</h5> 
+                  <h5 className="card-text">I'm {dogs.distance} miles away from you.</h5>
                   <button
                           type="button"
                           className="btn btn-dark dog-favorite-btn"

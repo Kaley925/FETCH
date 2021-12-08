@@ -10,7 +10,6 @@
   background-size: cover;
   height: 70%;
   
-  
 }
 
 .cat-top-button {
@@ -51,6 +50,7 @@
     height:20rem !important;
     width:auto !important;
     padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
 }
 .cat-img {
   height: 30rem !important;
@@ -71,10 +71,11 @@
 .bottom-container {
   background-color: #fae4bb;
 }
-.card {
+
+.box{
+  box-shadow: 0 0 20px 7px rgba(0,0,0,0.1);
   margin-right: 20px;
   margin-bottom: 20px;
-  box-shadow: 0 0 20px 7px rgba(0,0,0,0.1)
 }
 .card-body {
   text-align: center;

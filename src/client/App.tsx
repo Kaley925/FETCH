@@ -63,7 +63,7 @@ const App = () => {
     // saveFavoritesToLocalStorage(savedFavorites);
   };
 
-  const handleRemoveFavorites = (fav) => {
+  const handleRemoveFavorites = (fav: { id: any; }) => {
     const savedFavorites = favorites.filter((favorite) => {
       return favorite.id !== fav.id;
     });
@@ -86,7 +86,7 @@ const App = () => {
         handleLogout={handleLogout}
         isLoggedIn={isLoggedIn}
         bgView="#FBF4EA"
-        favoriteNumber={1}
+        favoriteNumber={favorites.length}
       />
       <Routes>
         <Route path="/" element={<Home />} />
