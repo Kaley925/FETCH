@@ -1,5 +1,5 @@
 .top-container {
-  background-color: white;
+  background-color: rgb(255, 255, 255)!important;
   height: 80rem;
 }
 
@@ -8,15 +8,13 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 75%;
+  height: 70%;
+  
+  
 }
 
 .cat-top-button {
-  // width:300px;
-  // position:relative;
-  // top:200px;
-  // left: 50px;
-  background-color: rgb(250, 187, 50) !important;
+  
   border: none;
   color: white;
   font-size: 20pt;
@@ -25,17 +23,35 @@
   background-color: black !important;
   color: white !important;
 }
+.first-btn{
+  background-color: #FEAD12 !important;
+  color: white !important;
+  font-weight: 600 !important;
+}
+.first-btn:hover{
+  transition: 0.3s ease-in-out;
+  background-color: black !important;
+  font-weight: 600 !important;
+}
+.second-btn{
+  background-color: none !important;
+  border: 0.1rem solid #FEAD12 !important;
+  font-weight: 600 !important;
+}
+.second-btn:hover{
+  background-color: #FEAD12 !important;
+  color: white !important;
+  font-weight: 600 !important;
+  border: none !important;
+}
 .cat-lower-title {
-  // position:relative;
-  // top:40rem;
   text-align: center;
 }
 .cat-pic{
     height:20rem !important;
     width:auto !important;
-    padding-top: 5rem !important;
+    padding-top: 2rem !important;
 }
-
 .cat-img {
   height: 30rem !important;
   width: auto !important;
@@ -52,31 +68,30 @@
 .girl-img {
   height: 10rem;
 }
-
 .bottom-container {
   background-color: #fae4bb;
 }
 .card {
   margin-right: 20px;
   margin-bottom: 20px;
+  box-shadow: 0 0 20px 7px rgba(0,0,0,0.1)
 }
 .card-body {
   text-align: center;
   background-color: white;
   width: 36rem;
-  height: 30rem;
+  height: 30rem !important;
 }
 .cat-favorite-btn {
   padding: 1rem;
+  background-color:#FEAD12 !important;
+  border:none !important;
 }
 .cat-favorite-btn:hover {
-  color: black;
+  color: black !important;
 }
 .title {
   font-size: 4rem;
-  // position:relative;
-  // top:100px;
-  // left: 50px;
 }
 .btn-view-cat {
   background-color: none;

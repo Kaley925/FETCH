@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./views/Home";
 import Cats from "./views/Cats";
-import Dogs from "./views/Dogs";
 import Profile from "./views/Profile";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
@@ -80,7 +79,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Home />} />
         <Route path="/Cats" element={<Cats favorite={handleFavorites} />} />
-        <Route path="/Dogs" element={<Dogs />} />
+        
         <Route path="/Profile" element={<Profile />} />
         <Route path="/Loading" element={<Loading />} />
         <Route
