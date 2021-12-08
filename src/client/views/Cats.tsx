@@ -21,6 +21,25 @@ const Cats: React.FC<CatsProps> = ({ favorite }) => {
     console.log(allCats);
     setCats(allCats);
   };
+ //dog stuff
+  const [dogs, setdogs] = useState([]);
+
+  useEffect(() => {
+    getdogData();
+  }, []);
+
+ 
+
+  const getdogData = async () => {
+    const res = await fetch("/api/dogs", {
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+      },
+    });
+    const alldogs = await res.json();
+    console.log(alldogs);
+    setdogs(alldogs);
+  };
 
   const dis = () => {
     return Math.floor(Math.random() * 50) + 1;
@@ -40,8 +59,27 @@ const Cats: React.FC<CatsProps> = ({ favorite }) => {
   //   { name: "Janice", color:'Brown', age:'a Young dog', image:'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53784063/1/?bust=1638658614&width=720', description:"Janice is an energetic young dog who loves to run around and play fetch"},
     
   // ]
-  
   // //end of emergency data part 1 of 2
+
+  const picarray = [
+    'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53722615/1/?bust=1638239028&width=720',
+    'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53722623/1/?bust=1638239116&width=720',
+    'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53722627/1/?bust=1638239179&width=720',
+    'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53780204/1/?bust=1638634529&width=720',
+    'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53780215/1/?bust=1638634700&width=720',
+    'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53780238/1/?bust=1638634861&width=720',
+    'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53600942/1/?bust=1637250246&width=720',
+    'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53601240/1/?bust=1637251749&width=720',
+    'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53601988/2/?bust=1637343523&width=720',
+    'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53620211/1/?bust=1637347587&width=720',
+  ]
+
+  const picarraydogs = [
+    'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53823354/1/?bust=1638916954&width=720',
+    'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53823353/1/?bust=1638916956&width=720',
+    'https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52376512/4/?bust=1626474994&width=720',
+  ]
+
   return (
     <>
       <div className="top-container">
@@ -50,12 +88,25 @@ const Cats: React.FC<CatsProps> = ({ favorite }) => {
             <div className="text-area">
               <h1 className="mt-5 title">Find the perfect pet!</h1>
               <h4 className="top-paragraph">
-                we have many cats to choose from, all in desperate need of a
-                home. Adopt a cat today to not only save a life, but to also
+                we have many cats and dogs to choose from, all in desperate need of a
+                home. Adopt a pet today to not only save a life, but to also
                 gain a best friend in the process!
               </h4>
               <button className="mt-4 cat-top-button btn">
                 See Our Cats Below{" "}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  className="bi bi-arrow-down-circle-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z" />
+                </svg>
+              </button>
+              <button className="mt-4 cat-top-button btn">
+                See Our Dogs Below{" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -80,7 +131,7 @@ const Cats: React.FC<CatsProps> = ({ favorite }) => {
 
         <div className="why-adopt-section">
           <div className="container why-adopt-container">
-            <h1 className="cat-lower-title">why adopt a cat?</h1>
+            <h1 className="cat-lower-title">why adopt a furry friend?</h1>
 
             <div className="d-flex justify-content-evenly align-items-center">
               <div className="row d-flex justify-content-center align-items-center">
@@ -92,7 +143,7 @@ const Cats: React.FC<CatsProps> = ({ favorite }) => {
                       alt="house"
                     />
                     <h3 className="cat-lower-one text-center">
-                      Cats are playful
+                      Pets are playful
                     </h3>
                   </div>
                 </div>
@@ -104,7 +155,7 @@ const Cats: React.FC<CatsProps> = ({ favorite }) => {
                       alt="badge"
                     />
                     <h3 className="cat-lower-two text-center">
-                      Cats are loyal
+                      Pets are loyal
                     </h3>
                   </div>
                 </div>
@@ -116,7 +167,7 @@ const Cats: React.FC<CatsProps> = ({ favorite }) => {
                       alt="girl"
                     />
                     <h3 className="cat-lower-three text-center">
-                      Cats are affectionate
+                      Pets are affectionate
                     </h3>
                   </div>
                 </div>
@@ -130,15 +181,19 @@ const Cats: React.FC<CatsProps> = ({ favorite }) => {
         <div className="cat-info container">
           <section className="row justify-content-center ">
             <h1 className="row justify-content-center mt-5">Find Cats</h1>
-            {/* {cats.map((cats) => (
+            {cats.map((cats, i) => (
+              
               <div className="card" style={{ width: "36rem" }}>
+              
+                <img className="card-img-top cat-pic" src={picarray[i]} alt="cat images"/>
+                  
                 <div className="card-body" key={`cat-name-${cats.id}`}>
                   <h4 className="card-title">My Name is {cats.name}</h4>
                   <h5 className="card-text">Description:{cats.description}</h5>
                   {cats.age == "adult" ? (
                     <h5 className="card-text"> I'm an {cats.age} cat</h5>
-                  ) : (
-                    <h5 className="card-text"> I'm a {cats.age} cat</h5>
+                    ) : (
+                      <h5 className="card-text"> I'm a {cats.age} cat</h5>
                   )}
 
                   <h5 className="card-text">I'm {dis()} miles away from you</h5>
@@ -146,16 +201,47 @@ const Cats: React.FC<CatsProps> = ({ favorite }) => {
                     type="button"
                     className="btn btn-dark cat-favorite-btn"
                     onClick={() => favorite(cats)}
+                    >
+                    Favorite Me
+                  </button>
+                 
+                </div>
+              </div>
+            ))}
+
+<div className="bottom-container" id="scroll-bot">
+        <div className="dog-info container">
+          <section className="row justify-content-center ">
+            <h1 className="row justify-content-center mt-5">Find dogs</h1>
+            {dogs.map((dogs, i) => (
+              <div className="card" style={{ width: "36rem" }}>
+
+                <img className="card-img-top cat-pic" src={picarraydogs[i]} alt="cat images"/>
+
+                <div className="card-body" key={`dog-name-${dogs.id}`}>
+                  {/* <img src={dogs.photos} className="card-img-top"/> */}
+                  <h4 className="card-title">My Name is {dogs.name}</h4>
+                  <h5 className="card-text">Description:{dogs.description}</h5>
+                  {dogs.age == "adult" ? (
+                    <h5 className="card-text"> I'm an {dogs.age} dog</h5>
+                  ) : (
+                    <h5 className="card-text"> I'm a {dogs.age} dog</h5>
+                  )}
+
+                  <h5 className="card-text">I'm {dis()} miles away from you</h5>
+                  <button
+                    type="button"
+                    className="btn btn-dark dog-favorite-btn"
                   >
                     Favorite Me
                   </button>
-                  <br />
-                  <a href={cats.url} className="btn-view-cat">
-                    View Cat{" "}
-                  </a>
+                  
                 </div>
               </div>
-            ))} */}
+            ))}
+          </section>
+        </div>
+      </div>
 
             {/* EMERGENCY SECTION  part 2 of 2*/}
             {/* {catarr.map((cats) => (
