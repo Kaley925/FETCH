@@ -43,21 +43,21 @@ const App = () => {
 
   //  Favorites
 
-  useEffect(() => {
-    const movieFavorites = JSON.parse(localStorage.getItem("favorites"));
-    setFavorites(movieFavorites);
-  }, []);
+  // useEffect(() => {
+  //   const movieFavorites = JSON.parse(localStorage.getItem("favorites"));
+  //   setFavorites(movieFavorites);
+  // }, []);
 
-  const saveFavoritesToLocalStorage = (faves) => {
-    localStorage.setItem("favorites", JSON.stringify(faves));
-  };
+  // const saveFavoritesToLocalStorage = (faves) => {
+  //   localStorage.setItem("favorites", JSON.stringify(faves));
+  // };
 
   const [favorites, setFavorites] = useState([]);
 
   const handleFavorites = (pets, img) => {
     const savedFavorites = [...favorites, pets];
     setFavorites(savedFavorites);
-    saveFavoritesToLocalStorage(savedFavorites);
+    // saveFavoritesToLocalStorage(savedFavorites);
   };
 
   const handleRemoveFavorites = (fav) => {
@@ -66,7 +66,7 @@ const App = () => {
     });
 
     setFavorites(savedFavorites);
-    saveFavoritesToLocalStorage(savedFavorites);
+    // saveFavoritesToLocalStorage(savedFavorites);
   };
 
   console.log(favorites);
