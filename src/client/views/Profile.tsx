@@ -15,31 +15,33 @@ const Profile = () => {
     <>
       <main ref={headerRef}>
         <div className="container d-flex justify-content-center mt-5">
-          <Sidebar modalView={undefined} handleModalClose={undefined} handleModalChange={undefined} />
+          <Sidebar />
           <div className="card prof p-3 py-4">
             <div className="text-center">
-              {" "}
-              <img
-                src="https://i.imgur.com/stD0Q19.jpg"
-                width="100"
-                className="rounded-circle"
-              />
-              <hr />
-              <h3 className=" name mt-2">Maria Samantha</h3>{" "}
-              <span className="mt-1 clearfix">Starbucks barista</span>
-              <div className="row mt-3 mb-3">
-                <div className="col-md-6">
-                  <h5>Pets Owned</h5> <span className="num">3</span>
+              <div className="profile mt-5">
+                {" "}
+                <img
+                  src="https://i.imgur.com/stD0Q19.jpg"
+                  width="100"
+                  className="rounded-circle"
+                />
+                <hr />
+                <h3 className=" name mt-2">Maria Samantha</h3>{" "}
+                <span className="mt-1 clearfix">Starbucks barista</span>
+                <div className="row mt-3 mb-3">
+                  <div className="col-md-6">
+                    <h5>Pets Owned</h5> <span className="num">3</span>
+                  </div>
+                  <div className="col-md-6">
+                    <h5>Age</h5> <span className="num">25</span>
+                  </div>
                 </div>
-                <div className="col-md-6">
-                  <h5>Age</h5> <span className="num">25</span>
-                </div>
+                <p className="mt-4">
+                  I'm a barista at Starbucks and studying psychology at The
+                  University of Alabama🎓
+                </p>
+                <div className="profile mt-5"> </div>
               </div>
-              <p className="mt-4">
-                I'm a barista at Starbucks and studying psychology at The
-                University of Alabama🎓
-              </p>
-              <div className="profile mt-5"> </div>
             </div>
           </div>
         </div>

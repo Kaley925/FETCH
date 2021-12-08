@@ -86,3 +86,17 @@ svg {
 .text-span {
     width: 160px;
 }
+.modal-stuff {
+    width: 800px;
+    height: 500px;
+    box-shadow: 0 50px 16px black;
+    background: #fcdfab;
+    color: black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: absolute;
+    left: 300;
+    bottom: 140;
+    z-index: 10;
+    border-radius: 10px;
+}
