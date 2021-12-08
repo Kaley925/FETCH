@@ -20,6 +20,7 @@ router.get('/:id?', passport.authenticate('jwt'), async (req, res, next) => {
           console.error(err);
           res.json(err)
       }
+
   }
   else {
       try {
@@ -30,6 +31,7 @@ router.get('/:id?', passport.authenticate('jwt'), async (req, res, next) => {
           res.json(err)
       }
   }
+
 })
 
 export default router;

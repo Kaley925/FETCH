@@ -43,6 +43,9 @@ const App = () => {
 
   //  Favorites
 
+
+
+
   // useEffect(() => {
   //   const movieFavorites = JSON.parse(localStorage.getItem("favorites"));
   //   setFavorites(movieFavorites);
@@ -69,6 +72,7 @@ const App = () => {
     // saveFavoritesToLocalStorage(savedFavorites);
   };
 
+
   console.log(favorites);
 
   return (
@@ -82,7 +86,7 @@ const App = () => {
         handleLogout={handleLogout}
         isLoggedIn={isLoggedIn}
         bgView="#FBF4EA"
-        favoriteNumber={favorites.length}
+        favoriteNumber={1}
       />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -93,12 +97,16 @@ const App = () => {
         <Route path="/Loading" element={<Loading />} />
         <Route
           path="/Favorites"
+
+          
+
           element={
             <Favorites
               favorites={favorites}
               removeFavorite={handleRemoveFavorites}
             />
           }
+
         />
       </Routes>
     </BrowserRouter>
