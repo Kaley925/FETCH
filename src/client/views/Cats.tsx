@@ -78,6 +78,11 @@ const Cats: React.FC<CatsProps> = ({ favorite }) => {
     "https://i.imgur.com/h3WnW86.jpg",
     "https://i.imgur.com/aixg8VQ.jpg",
     "https://i.imgur.com/F6EPCny.jpg",
+    "https://i.imgur.com/zQyKGjZ.jpg",
+    "https://i.imgur.com/3cd205s.jpg",
+    "https://i.imgur.com/kQrTdif.jpg",
+    "https://i.imgur.com/hTgI8wJ.jpg",
+    "https://i.imgur.com/VjrEh6Z.jpg",
   ];
 
   return (
