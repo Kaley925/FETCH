@@ -133,23 +133,18 @@ const Home = () => {
         <div className="container success-stories-container">
           <h2 className="success-title">Success Stories</h2>
           <p className="success-description text-muted mt-3">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum
-            quasi at vitae eveniet, ipsa nostrum, possimus laborum maiores quia
-            cum recusandae consequuntur repudiandae ea magni nisi sapiente,
-            numquam fugiat ex.
+            Pet owners from all across Alabama have used Fetch to find their furever friend. Below you will find just a few of our success stories! We also love hearing everyone's story so don't hesitate to tell us yours if you have found your cat or dog through Fetch.
           </p>
           <div className="arrows d-flex justify-content-end mt-4 mb-4">
             <BsArrowLeft
               onClick={slideLeft}
-              className={`slider-left mx-2 ${
-                currentArrow === "left" ? "active-arrow" : ""
-              }`}
+              className={`slider-left mx-2 ${currentArrow === "left" ? "active-arrow" : ""
+                }`}
             />
             <BsArrowRight
               onClick={slideRight}
-              className={`slider-right ${
-                currentArrow === "right" ? "active-arrow" : ""
-              }`}
+              className={`slider-right ${currentArrow === "right" ? "active-arrow" : ""
+                }`}
             />
           </div>
           <Slider

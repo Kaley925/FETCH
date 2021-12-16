@@ -65,7 +65,7 @@ const Favorites: React.FC<FavoritesProps> = ({ favorites, removeFavorite }) => {
             <div className="d-flex justify-content-center align-items-center">
               <div className="favorites-row gx-3 gy-3 row d-flex  justify-content-center align-items-center">
 
-                {favorites.map((favorite) => {
+                {favorites.map((favorite: any) => {
                   return (
                     <div
                       className={
